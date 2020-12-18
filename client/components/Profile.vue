@@ -49,12 +49,13 @@
         />
         <h6>Veuillez saisir une seconde fois votre nouveau mot de passe</h6>
         <input type="text" name="new_mdp2" placeholder="" class="clean7" />
+        <br> 
         <input
           type="button"
           value="Valider les modifications"
           id="valider_modifs"
           class="clean8"
-        />
+        /> 
       </form>
     </div>
 
@@ -65,8 +66,26 @@
 </template>
 
 <style scoped>
+div#first
+{
+  background-color: rgb(141, 128, 128);
+}
 div#first div {
   display: inline-block;
   width: 48%;
 }
+div#first div.gauche
+{
+  background-color: rgb(185, 178, 178);
+}
+div#first div.droite
+{
+  vertical-align: top;
+}
+div#first div h6, h3, input
+{
+  margin-left: 35px;
+  margin-bottom: 10px;
+}
+
 </style>
