@@ -1,0 +1,133 @@
+<template>
+  <div id="container">
+    <form action="page d'inscription" method="post">
+      <div>
+        <img id="image" src="img/logo.png" />
+      </div>
+
+      <div>
+        <label for="name">Nom* :</label>
+        <input type="text" id="name" name="user_name" required />
+      </div>
+      <div>
+        <label for="Prénom">Prénom*:</label>
+        <input type="e" id="Prénom" name="user_firstname" required />
+      </div>
+      <div>
+        <label for="mail">E-mail* :</label>
+        <input type="email" id="mail" name="user_mail" required />
+      </div>
+      <div>
+        <label for="pseudo">Pseudo* :</label>
+        <input type="text" id="pseudo" name="user_pseudoname" required="" />
+      </div>
+      <div>
+        <label for="Numéro">Numéro de Téléphone:</label>
+        <input type="text" id="Numéro" name="user_number" />
+      </div>
+
+      <div class="button">
+        <button type="submit">S'inscrire</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<style>
+body {
+  background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2351x1600/248b03deeffb0aa7f7062545fe026c64/photo-1490645935967-10de6ba17061.jpg");
+}
+#container {
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+}
+
+#image {
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: auto;
+}
+
+form {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0em;
+  margin-right: 0em;
+  width: 6em;
+  background-color: 029468;
+
+  margin: 0 auto;
+
+  width: 450px;
+  height: 470px;
+
+  padding: 1em;
+  border: 4px solid #ccc;
+  border-radius: 1em;
+  align-self: center;
+}
+
+form div + div {
+  margin-top: 1.5em;
+}
+
+label {
+  /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+  display: inline-block;
+  color: black;
+  width: 90px;
+  text-align: right;
+}
+
+input,
+textarea {
+  /* Pour s'assurer que tous les champs texte ont la même police.
+     Par défaut, les textarea ont une police monospace */
+  font: 1em sans-serif;
+
+  /* Pour que tous les champs texte aient la même dimension */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* Pour harmoniser le look & feel des bordures des champs texte */
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  /* Pour souligner légèrement les éléments actifs */
+  border-color: #000;
+}
+
+textarea {
+  /* Pour aligner les champs texte multi‑ligne avec leur étiquette */
+  vertical-align: top;
+
+  /* Pour donner assez de place pour écrire du texte */
+  height: 5em;
+}
+
+.button {
+  /* Pour placer le bouton à la même position que les champs texte */
+  padding-left: 90px; /* même taille que les étiquettes */
+}
+
+button {
+  /* Cette marge supplémentaire représente grosso modo le même espace que celui
+     entre les étiquettes et les champs texte */
+  background-color: #e59c3a;
+  color: white;
+  padding: 14px 20px;
+  margin: 9px 0;
+  border: none;
+  cursor: pointer;
+  width: 85%;
+  border-radius: 1em;
+}
+#form {
+  display: block;
+  margin: auto;
+}
+</style>
