@@ -1,55 +1,61 @@
 <template>
-  <div id="container">
-    <!-- zone de connexion -->
+  <section>
+    <div id="container">
+      <!-- zone de connexion -->
 
-    <form action="verification.php" method="POST">
-      <h1>Connexion</h1>
+      <form action="verification.php" method="POST">
+        <h1>Connexion</h1>
 
-      <label><b>Nom d'utilisateur</b></label>
-      <input
-        type="text"
-        placeholder="Entrer le nom d'utilisateur"
-        name="username"
-        required
-      />
+        <label><b>Nom d'utilisateur</b></label>
+        <input
+          type="text"
+          placeholder="Entrer le nom d'utilisateur"
+          name="username"
+          required
+        />
 
-      <label><b>Mot de passe</b></label>
-      <input
-        type="password"
-        placeholder="Entrer le mot de passe"
-        name="password"
-        required
-      />
+        <label><b>Mot de passe</b></label>
+        <input
+          type="password"
+          placeholder="Entrer le mot de passe"
+          name="password"
+          required
+        />
 
-      <input type="submit" id="submit" value="Connexion" />
-    </form>
-  </div>
+        <input type="submit" id="submit" value="Connexion" />
+      </form>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-body {
-  background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x1920/48140f34221042daaac2b28bab670f0a/photo-1535229398509-70179087ac75.jpg");
-}
 
+section {
+  background: linear-gradient(#071e38, #040614);
+  height: calc(100vh - 371px);
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
 #container {
   width: 400px;
   margin: 0 auto;
-  margin-top: 10%;
 }
 
 /* Bordered form */
 form {
-  width: 100%;
   padding: 30px;
   border: 1px solid #f1f1f1;
   background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
 }
 
 #container h1 {
-  width: 38%;
   margin: 0 auto;
   padding-bottom: 10px;
+  border-radius: 2px;
+  text-align: center;
 }
 
 /* Full-width inputs */
@@ -61,6 +67,7 @@ input[type="password"] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
 /* Set a style for all buttons */
@@ -72,7 +79,8 @@ input[type="submit"] {
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius: 1em;
+  border-radius: 10px;
+  border: 1px solid #53af57;
 }
 
 input[type="submit"]:hover {

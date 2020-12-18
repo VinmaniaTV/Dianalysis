@@ -1,46 +1,48 @@
 <template>
-  <div id="container">
-    <form action="page d'inscription" method="post">
-      <div>
-        <img id="image" src="img/logo.png" />
-      </div>
+  <section>
+    <div id="container">
+      <form action="page d'inscription" method="post">
+        <h1>Inscription</h1>
 
-      <div>
-        <label for="name">Nom* :</label>
-        <input type="text" id="name" name="user_name" required />
-      </div>
-      <div>
-        <label for="Prénom">Prénom*:</label>
-        <input type="e" id="Prénom" name="user_firstname" required />
-      </div>
-      <div>
-        <label for="mail">E-mail* :</label>
-        <input type="email" id="mail" name="user_mail" required />
-      </div>
-      <div>
-        <label for="pseudo">Pseudo* :</label>
-        <input type="text" id="pseudo" name="user_pseudoname" required="" />
-      </div>
-      <div>
-        <label for="Numéro">Numéro de Téléphone:</label>
-        <input type="text" id="Numéro" name="user_number" />
-      </div>
+        <div>
+          <label for="name">Nom* :</label>
+          <input type="text" id="name" name="user_name" required />
+        </div>
+        <div>
+          <label for="Prénom">Prénom*:</label>
+          <input type="e" id="Prénom" name="user_firstname" required />
+        </div>
+        <div>
+          <label for="mail">E-mail* :</label>
+          <input type="email" id="mail" name="user_mail" required />
+        </div>
+        <div>
+          <label for="pseudo">Pseudo* :</label>
+          <input type="text" id="pseudo" name="user_pseudoname" required />
+        </div>
+        <div>
+          <label for="Numéro">Numéro de Téléphone:</label>
+          <input type="text" id="Numéro" name="user_number" />
+        </div>
 
-      <div class="button">
-        <button type="submit">S'inscrire</button>
-      </div>
-    </form>
-  </div>
+        <input type="submit" value="S'inscrire"/>
+      </form>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-body {
-  background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2351x1600/248b03deeffb0aa7f7062545fe026c64/photo-1490645935967-10de6ba17061.jpg");
+section {
+  background: linear-gradient(#071e38, #040614);
+  height: calc(100vh - 371px);
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 #container {
-  height: 100%;
   justify-content: center;
   align-content: center;
+  margin: 0 auto;
 }
 
 #image {
@@ -50,27 +52,43 @@ body {
   margin: auto;
 }
 
-form {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  margin-left: 0em;
-  margin-right: 0em;
-  width: 6em;
-  background-color: 029468;
-
+#container h1 {
   margin: 0 auto;
+  padding-bottom: 10px;
+  border-radius: 2px;
+  text-align: center;
+}
 
-  width: 450px;
-  height: 470px;
-
-  padding: 1em;
-  border: 4px solid #ccc;
+form {
   border-radius: 1em;
-  align-self: center;
+
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
 }
 
 form div + div {
   margin-top: 1.5em;
+}
+
+input[type="submit"] {
+  background-color: #e59c3a;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px 0 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e59c3a;
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color: #e59c3a;
+  border: 1px solid #e59c3a;
 }
 
 label {
@@ -95,39 +113,18 @@ textarea {
   border: 1px solid #999;
 }
 
+form div input {
+  height: 30px;
+  border-radius: 3px;
+}
+
 input:focus,
 textarea:focus {
   /* Pour souligner légèrement les éléments actifs */
   border-color: #000;
 }
 
-textarea {
-  /* Pour aligner les champs texte multi‑ligne avec leur étiquette */
-  vertical-align: top;
-
-  /* Pour donner assez de place pour écrire du texte */
-  height: 5em;
-}
-
-.button {
-  /* Pour placer le bouton à la même position que les champs texte */
-  padding-left: 90px; /* même taille que les étiquettes */
-}
-
-button {
-  /* Cette marge supplémentaire représente grosso modo le même espace que celui
-     entre les étiquettes et les champs texte */
-  background-color: #e59c3a;
-  color: white;
-  padding: 14px 20px;
-  margin: 9px 0;
-  border: none;
-  cursor: pointer;
-  width: 85%;
-  border-radius: 1em;
-}
-#form {
-  display: block;
-  margin: auto;
+form div {
+  margin: 20px;
 }
 </style>

@@ -1,25 +1,25 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <a class="nav" href=""> Votre programme </a>
-      </li>
-      <li>
-        <a class="nav" href=""> Consulter notre liste d'aliments </a>
-      </li>
-      <li>
-        <a class="nav" href=""> Nos conseils </a>
-      </li>
-      <li>
-        <a class="nav" href=""> Votre historique </a>
-      </li>
-    </ul>
-  </nav>
+    <section>
+      <ul>
+        <li>
+          <a class="nav" href=""> Votre programme </a>
+        </li>
+        <li>
+          <a class="nav" href=""> Consulter notre liste d'aliments </a>
+        </li>
+        <li>
+          <a class="nav" href=""> Nos conseils </a>
+        </li>
+        <li>
+          <a class="nav" href=""> Votre historique </a>
+        </li>
+      </ul>
+    </section>
 </template>
 
 <style scoped>
-body {
-  background-color: grey;
+section {
+  background: linear-gradient(#071e38, #040614);;
 }
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
