@@ -64,7 +64,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 div#first div {
   display: inline-block;
   width: 48%;

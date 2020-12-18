@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x1920/48140f34221042daaac2b28bab670f0a/photo-1535229398509-70179087ac75.jpg");
 }

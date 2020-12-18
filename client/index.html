@@ -3,41 +3,129 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dianalysis</title>
     <!-- Load Vue followed by Vue Router -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="public/css/polices.css">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 </head>
 
 <body>
     <div id="app">
         <header>
-            <nav>
-                <div>
-                    <img src="" alt="">
-                    <p>DIANALYSIS</p>
-                </div>
-                <router-link to='/'>Accueil</router-link>
-                <router-link to='/lobby'>Lobby</router-link>
-                <div>
-                    <router-link to='/signup'>S'inscrire</router-link>
-                    <router-link to='/login'>Se connecter</router-link>
-                    <router-link to='/me'>Mon profil</router-link>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#"><img src="./img/logo.png" alt="logo" class="img-fluid rounded-circle" width="48"><span>Dianalysis</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><img src="./img/menu.png" class="img-fluid" width="30"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mr-auto w-100 d-flex justify-content-end">
+                        <li class="nav-item">
+                            <router-link class="nav-link" to='/'>Accueil</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to='/lobby'>Lobby</router-link>
+                        </li>
+                        <div>
+                            <li class="nav-item">
+                                <router-link class="nav-link" to='/signup'>S'inscrire</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link" to='/login'>Se connecter</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link" to='/me'>Mon profil</router-link>
+                            </li>
+                        </div>
+                    </ul>
                 </div>
             </nav>
         </header>
 
         <main>
-            <router-view
+            <router-view></router-view>
+        </main>
+        <footer role="contentinfo" class="footer footer-default ">
+            <div class="container">
+                <nav class="row">
 
-            ></router-view>
-          </main>
+                    <div class="col- col-md-2">
+                        <div class="footer-logo">
+                            <a class="navbar-brand" href="#"><img src="./img/logo.png" alt="" title="" width="80" height="80" /></a>
+                        </div>
+                    </div>
 
-        <footer>
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <h3 class="nav-title">Dianalysis</h3>
+                        <ul class="nav">
+                            <li>
+                                <router-link to='/'>Accueil</router-link>
+                            </li>
+                            <li>
+                                <router-link to='/lobby'>Lobby</router-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2" id="contact">
+                        <h3 class="nav-title">Contact</h3>
+                        <ul class="nav">
+                            <li>
+                                <a href="">
+                                    Terms and conditions of utilisation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    A Socials media
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <h3 class="nav-title">&nbsp;</h3>
+                        <ul class="nav">
+                            <li>
+                                <a href="">
+                                    Legal disclaimer
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Cookies
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+
+                <nav class="row row-small">
+                    <div class="col-xs-12 col-md-12 text-right">
+                        <small class="copyright">&copy; 2020 Groupe 327</small>
+                    </div>
+                </nav>
+            </div>
         </footer>
     </div>
     <script src="./vue-application.js"></script>

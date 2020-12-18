@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2351x1600/248b03deeffb0aa7f7062545fe026c64/photo-1490645935967-10de6ba17061.jpg");
 }
