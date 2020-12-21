@@ -33,6 +33,7 @@
 section {
   background: linear-gradient(#071e38, #040614);
   height: calc(100vh - 371px);
+  min-height: 500px;
   display: flex;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
