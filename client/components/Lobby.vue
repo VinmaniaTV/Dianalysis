@@ -16,9 +16,10 @@
     </section>
 </template>
 
-<style>
+<style scoped>
+
 section{
-  background-color: #2D3F61;
+  background-color: white;
 }
 .title_container{
   padding-top: 55px;
