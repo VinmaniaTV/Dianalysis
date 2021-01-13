@@ -132,7 +132,7 @@ section {
 #container {
   justify-content: center;
   align-content: center;
-  margin: 0 auto;
+  margin: auto auto;
 }
 
 #image {
@@ -151,7 +151,7 @@ section {
 
 form {
   border-radius: 1em;
-
+  position: relative;
   padding: 30px;
   border: 1px solid #f1f1f1;
   background: #fff;

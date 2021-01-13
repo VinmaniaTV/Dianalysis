@@ -3,13 +3,15 @@ const LogIn = window.httpVueLoader('./components/LogIn.vue')
 const SignUp = window.httpVueLoader('./components/SignUp.vue')
 const Lobby = window.httpVueLoader('./components/Lobby.vue')
 const Profile = window.httpVueLoader('./components/Profile.vue')
+const Programme = window.httpVueLoader('./components/programme.vue')
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/login', component: LogIn },
-    { path: '/signup', component: SignUp },
-    { path: '/lobby', component: Lobby },
-    { path: '/me', component: Profile },
+  { path: '/', component: Home },
+  { path: '/login', component: LogIn },
+  { path: '/signup', component: SignUp },
+  { path: '/lobby', component: Lobby },
+  { path: '/me', component: Profile },
+  { path: '/programme', component: Programme },
 ]
 
 const router = new VueRouter({
