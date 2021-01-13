@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   font-family: Arial;
   padding: 20px;

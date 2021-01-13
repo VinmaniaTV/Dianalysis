@@ -34,7 +34,7 @@ module.exports = {
 };
 </script>
 
-<style>
+<style scoped>
 section {
   background-color: #2d3f61;
 }

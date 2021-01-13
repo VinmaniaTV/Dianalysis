@@ -16,7 +16,7 @@
   </form>
 </template>
 
-<style>
+<style scoped>
 p {
   text-align: center;
   margin-top: 50px;
