@@ -84,7 +84,7 @@ background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(
   text-decoration: none;
   color: white;
   background: linear-gradient(to right, #2d3f61, #2051ad, #2d3f61);
-  transition: 2s, 2s;
+  transition: 1s, 1s;
   font-size: 40px;
   width: 1200px;
 }

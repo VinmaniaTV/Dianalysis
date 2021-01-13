@@ -100,7 +100,7 @@ module.exports = {
   padding-top:20px
 }
 .input_style{
-
+  
   border-color:rgb(73, 89, 231);
   border-radius: 10px;
   
@@ -114,6 +114,7 @@ module.exports = {
 
   }
 .profile_container{
+  background-image: url("../img/fondbleu.jpg");
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -171,7 +172,7 @@ input {
   margin: 0;
 }
 #button_valider{
-  color:white;
+  color:rgb(255, 255, 255);
   border-color: rgb(0, 0, 0);
   background-color: rgb(27, 44, 194);
   border-radius:10px;
