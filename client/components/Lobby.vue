@@ -51,6 +51,8 @@ section{
   border: solid #5B81C7;
   border-radius: 5px;
   padding-top: 35px;
+  margin-top: 5px;
+  margin-bottom:5px;
 }
 
 .summary:hover{
@@ -59,5 +61,6 @@ section{
   background: linear-gradient(to right, #2D3F61, #6D9AED, #2D3F61);
   transition: 2s, 2s;
   font-size: 40px;
+  width: 1200px;
 }
 </style>
