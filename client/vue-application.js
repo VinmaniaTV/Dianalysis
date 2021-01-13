@@ -28,10 +28,12 @@ var app = new Vue({
     router,
     el: '#app',
     data: {
+        food: [],
         connected: false
     },
     async mounted() {
-
+        const food = await axios.get('api/datafood')
+        this.food = food.data
     },
     methods: {
         async addUser(newUser) {
