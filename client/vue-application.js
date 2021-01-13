@@ -38,7 +38,7 @@ var app = new Vue({
                     }
                 })) {
                 this.connected = true;
-                router.push('/')
+                router.push('/login')
             }
         },
         async logIn(user) {
@@ -52,7 +52,7 @@ var app = new Vue({
             if (userTeam.status === 200) {
                 this.team = userTeam.data;
                 this.connected = true;
-                router.push('/')
+                router.push('/login')
             }
         },
         async logOut() {
