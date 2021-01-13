@@ -2,7 +2,7 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <nav class="">
-      <h2>Bon retour #Guest#</h2>
+      <h2>(Re)Bonjour à vous !</h2>
     </nav>
     <div id="section_y">
       <h2 class="title_container">Accueil</h2>
@@ -35,21 +35,28 @@ module.exports = {
 </script>
 
 <style scoped>
+h2{
+
+  color:#fff;
+}
 section {
-  background-color: #2d3f61;
+  background-color: rgba(1,25,68,1);
 }
 .title_container {
-  padding-top: 55px;
-  background-color: black;
+background: rgb(1,25,68);
+background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+  font-size: 65px;
+  padding-top: 10px;
   color: white;
   text-align: center;
   justify-content: center;
   margin: auto;
-  height: 150px;
+  height: 110px;
   margin: 0;
 }
 
 .section_y {
+  background-image: url();
   height: 1vh;
   text-align: center;
 }
@@ -60,13 +67,13 @@ section {
 }
 
 .summary {
-  color: white;
-  background-color: #4a68a1;
+  color:rgb(255, 255, 255);
+  background-color: #033797;
   height: 140px;
   width: 50em;
   text-decoration: none;
   text-align: center;
-  border: solid #5b81c7;
+  border: solid #000000;
   border-radius: 5px;
   padding-top: 35px;
   margin-top: 5px;
@@ -76,7 +83,7 @@ section {
 .summary:hover {
   text-decoration: none;
   color: white;
-  background: linear-gradient(to right, #2d3f61, #6d9aed, #2d3f61);
+  background: linear-gradient(to right, #2d3f61, #2051ad, #2d3f61);
   transition: 2s, 2s;
   font-size: 40px;
   width: 1200px;

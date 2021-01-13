@@ -8,38 +8,38 @@
       <div class="collum1">
         <div class="data_profile">
           <h6>Mon prénom&nbsp;:</h6>
-        <input type="text" id="prenom" name="user_prenom" placeholder="mon prénom" class="clean1"/>
+        <input type="text" id="prenom" name="user_prenom" placeholder="Prénom" class="input_style"/>
         </div>
         
         <div class="data_profile">
         <h6>Mon nom&nbsp;:</h6>
-        <input type="text" id="nom" name="user_nom" placeholder="mon Nom" class="clean2"/>
+        <input type="text" id="nom" name="user_nom" placeholder="Nom" class="input_style"/>
         </div>
 
         <div class="data_profile">
         <h6>Mon adresse e-mail&nbsp;:</h6>
-        <input id="email" name="email_message" placeholder=" mon email" class="clean3"/>
+        <input id="email" name="email_message" placeholder=" E-mail" class="input_style"/>
         </div>
 
         <div class="data_profile">
-        <h6>Mon Username&nbsp;:</h6>
-        <input type="text" name="username" placeholder="Identifiant utilisateur" class="clean4"/>
+        <h6>Pseudo&nbsp;:</h6>
+        <input type="text" name="username" placeholder="Identifiant utilisateur" class="input_style"/>
         </div>
       </div>
       <div class="collum2">
         <div class="data_profile">
         <h6>Mot de passe actuel&nbsp;:</h6>
-        <input type="password" name="actual_password" placeholder="Mot de passe" class="clean5"/>
+        <input type="password" name="actual_password" placeholder="Mot de passe" class="input_style"/>
         </div>
 
         <div class="data_profile">
         <h6>Nouveau mot de passe&nbsp;:</h6>
-        <input type="password" name="new_mdp" placeholder="Saisissez votre nouveau mot de passe" class="clean6" id="password"/>
+        <input type="password" name="new_mdp" placeholder="Saisissez votre nouveau mot de passe" class="input_style" id="password"/>
         </div>
 
         <div class="data_profile">
-        <h6>Veuillez saisir une seconde fois votre nouveau mot de passe&nbsp;:</h6>
-        <input type="text" name="new_mdp2" placeholder="Saisissez votre nouveau mot de passe" class="clean7" />
+        <h6>Confirmation du mot de passe&nbsp;:</h6>
+        <input type="text" name="new_mdp2" placeholder="Saisissez votre nouveau mot de passe" class="input_style" />
         </div>
       </div>
     </div>
@@ -91,6 +91,28 @@ module.exports = {
 </script>
 
 <style scoped>
+.collum1{
+
+  padding-top:20px
+}
+.collum2{
+
+  padding-top:20px
+}
+.input_style{
+
+  border-color:rgb(73, 89, 231);
+  border-radius: 10px;
+  
+}
+
+.data_profile{
+  margin-top: 30px;
+  color:white;
+  text-align: center  ;
+  
+
+  }
 .profile_container{
   display: flex;
   flex-direction: row;
@@ -98,6 +120,7 @@ module.exports = {
 }
 
 #form_profile{
+  background-color:#011f5f;
   flex-direction: column;
   margin: auto auto;
   flex-wrap: wrap;
@@ -135,16 +158,25 @@ input {
 }
 
 #vos_informations{
-  margin: 20px;
-  border: solid;
+  font-size:50px;
+  color:white;
+  margin: auto;
   text-align: center;
+  
+  
+  
 }
 
 #errorModifyUserMessage{
   margin: 0;
 }
 #button_valider{
+  color:white;
+  border-color: rgb(0, 0, 0);
+  background-color: rgb(27, 44, 194);
+  border-radius:10px;
   display: block;
   margin: auto auto;
+  height: 2em;
 }
 </style>

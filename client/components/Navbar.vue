@@ -24,7 +24,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto w-100 d-flex justify-content-end">
-          <div v-if="connected === true">
+          <div v-if="connected === false">
             <li class="nav-item">
               <router-link class="nav-link" to="/">Accueil</router-link>
             </li>
@@ -139,7 +139,9 @@ header div {
 }
 
 .navbar .nav-item .nav-link:first-letter {
-  color: #8dffd6;
+  color: #3177fa;
+  
+
 }
 
 .navbar-toggler-icon img {
