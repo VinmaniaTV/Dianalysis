@@ -7,7 +7,7 @@ const { Client } = require('pg')
 const client = new Client({
     user: 'postgres',
     host: 'localhost',
-    password: 'adame14789632',
+    password: 'admin',
     database: 'Dianalysis'
 })
 
@@ -217,6 +217,19 @@ router.get('/me', async(req, res) => {
         email: userSQL.rows[0].email
     }
     res.json(user)
+    return
+})
+
+/**
+ * Cette route envoie l'intégralité des informations nutritives de la base de données
+ */
+router.get('/datafood', async(req, res) => {
+    const sql = "SELECT * FROM food ORDER BY id"
+    const foodSQL = await client.query({
+        text: sql,
+        values: []
+    })
+    res.json(foodSQL.rows)
     return
 })
 

@@ -1,40 +1,60 @@
 <template>
-  <div class="row">
-    <div class="leftcolumn">
-      <div class="card">
-        <h2>CONSULTER LES CONSEILS DE NOS EXPERTS</h2>
+  <section>
+    <navbar :connected="connected" @log-out="logOut"></navbar>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>CONSULTER LES CONSEILS DE NOS EXPERTS</h2>
 
-        <div class="fakeimg" style="height: 200px">Image</div>
-        <p>Insérer une description</p>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>Insérer une description</p>
+        </div>
+        <div class="card">
+          <h2>TITRE DEUXIEME</h2>
+
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>une autre description</p>
+        </div>
       </div>
-      <div class="card">
-        <h2>TITRE DEUXIEME</h2>
-
-        <div class="fakeimg" style="height: 200px">Image</div>
-        <p>une autre description</p>
+      <div class="rightcolumn">
+        <div class="card">
+          <h2>QUI SOMMES NOUS</h2>
+          <div class="fakeimg" style="height: 100px">Image</div>
+          <p>Nous sommes les créateurs du projet blala</p>
+        </div>
+        <div class="card">
+          <h3>ACTUALITE</h3>
+          <div class="fakeimg">Image</div>
+          <br />
+          <div class="fakeimg">Image</div>
+          <br />
+          <div class="fakeimg">Image</div>
+        </div>
+        <div class="card">
+          <h3>REJOIGNEZ NOTRE COMMUNAUTE</h3>
+          <p>blablabla</p>
+        </div>
       </div>
     </div>
-    <div class="rightcolumn">
-      <div class="card">
-        <h2>QUI SOMMES NOUS</h2>
-        <div class="fakeimg" style="height: 100px">Image</div>
-        <p>Nous sommes les créateurs du projet blala</p>
-      </div>
-      <div class="card">
-        <h3>ACTUALITE</h3>
-        <div class="fakeimg">Image</div>
-        <br />
-        <div class="fakeimg">Image</div>
-        <br />
-        <div class="fakeimg">Image</div>
-      </div>
-      <div class="card">
-        <h3>REJOIGNEZ NOTRE COMMUNAUTE</h3>
-        <p>blablabla</p>
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
+
+<script>
+const Navbar = window.httpVueLoader("./components/Navbar.vue");
+module.exports = {
+  props: {
+    connected: { type: Boolean },
+  },
+  components: {
+    Navbar,
+  },
+  methods: {
+    logOut() {
+      this.$emit("log-out");
+    },
+  },
+};
+</script>
 
 <style scoped>
 body {
