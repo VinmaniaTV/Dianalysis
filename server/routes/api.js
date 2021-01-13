@@ -25,7 +25,7 @@ router.post('/register', async(req, res) => {
     const phone = req.body.phone;
 
     const sqlUsername = "SELECT * FROM users WHERE username=$1"
-    const checkUsername = await client.query({ // notez le "await" car la fonction est asynchrone
+    const checkUsername = await client.query({
         text: sqlUsername,
         values: [username]
     })
@@ -36,7 +36,7 @@ router.post('/register', async(req, res) => {
     }
 
     const sqlEmail = "SELECT * FROM users WHERE email=$1"
-    const checkEmail = await client.query({ // notez le "await" car la fonction est asynchrone
+    const checkEmail = await client.query({
         text: sqlEmail,
         values: [email]
     })
@@ -48,18 +48,106 @@ router.post('/register', async(req, res) => {
 
     const hash = await bcrypt.hash(password, 10)
     const addUserSql = 'INSERT INTO users (username, email, password, firstname, lastname, phone) VALUES ($1, $2, $3, $4, $5, $6)'
-    await client.query({ // notez le "await" car la fonction est asynchrone
+    await client.query({
         text: addUserSql,
         values: [username, email, hash, firstname, lastname, phone]
     })
 
-    const userData = await client.query({ // notez le "await" car la fonction est asynchrone
+    const userData = await client.query({
         text: sqlUsername,
         values: [username]
     })
     req.session.userId = userData.rows[0].id
         // on envoie l'id du user ajouté à l'utilisateur
     res.json(userData.rows[0].id)
+})
+
+router.post('/updateUser', async(req, res) => {
+    const username = req.body.username.toLowerCase();
+    const email = req.body.email.toLowerCase();
+    const password = req.body.password;
+    const firstname = req.body.firstname.toLowerCase();
+    const lastname = req.body.lastname.toUpperCase();
+    const phone = req.body.phone;
+
+    if (username != null && username != "") {
+        const sqlUsername = "SELECT * FROM users WHERE username=$1"
+        const checkUsername = await client.query({
+            text: sqlUsername,
+            values: [username]
+        })
+
+        if (checkUsername.rowCount !== 0) {
+            res.status(400).json({ message: 'username already taken.' })
+            return
+        }
+
+        const sqlUpdateUsername = "UPDATE users set username = $1 WHERE id = $2"
+        await client.query({
+            text: sqlUpdateUsername,
+            values: [username, req.session.userId]
+        })
+    }
+
+    if (email != null && email != "") {
+        const sqlEmail = "SELECT * FROM users WHERE email=$1"
+        const checkEmail = await client.query({
+            text: sqlEmail,
+            values: [email]
+        })
+
+        if (checkEmail.rowCount !== 0) {
+            res.status(401).json({ message: 'email already taken.' })
+            return
+        }
+
+        const sqlUpdateUsername = "UPDATE users set email = $1 WHERE id = $2"
+        await client.query({
+            text: sqlUpdateUsername,
+            values: [email, req.session.userId]
+        })
+    }
+
+    if (password != null && password != "") {
+        const hash = await bcrypt.hash(password, 10)
+        const sqlUpdatePassword = "UPDATE users SET password = $1 WHERE id = $2"
+        await client.query({
+            text: sqlUpdatePassword,
+            values: [hash, req.session.userId]
+        })
+    }
+
+    if (firstname != null && firstname != "") {
+        const sqlUpdateFirstname = "UPDATE users SET firstname = $1 WHERE id = $2"
+        await client.query({
+            text: sqlUpdateFirstname,
+            values: [firstname, req.session.userId]
+        })
+    }
+
+    if (lastname != null && lastname != "") {
+        const sqlUpdateLastname = "UPDATE users SET lastname = $1 WHERE id = $2"
+        await client.query({
+            text: sqlUpdateLastname,
+            values: [lastname, req.session.userId]
+        })
+    }
+
+    if (phone != null && phone != "") {
+        const sqlUpdatePhone = "UPDATE users SET phone = $1 WHERE id = $2"
+        await client.query({
+            text: sqlUpdatePhone,
+            values: [phone, req.session.userId]
+        })
+    }
+
+    const sqlUser = "SELECT * FROM users WHERE id=$1"
+    const userData = await client.query({
+            text: sqlUser,
+            values: [req.session.userId]
+        })
+        // on envoie le user ajouté à l'utilisateur
+    res.json(userData.rows[0])
 })
 
 /**
@@ -70,7 +158,7 @@ router.post('/login', async(req, res) => {
     const password = req.body.password
 
     const sqlUser = "SELECT * FROM users WHERE email=$1 OR username =$1"
-    const checkExists = await client.query({ // notez le "await" car la fonction est asynchrone
+    const checkExists = await client.query({
         text: sqlUser,
         values: [username]
     })
@@ -113,7 +201,7 @@ router.get('/me', async(req, res) => {
     }
 
     const sql = "SELECT * FROM users WHERE id=$1"
-    const userSQL = await client.query({ // notez le "await" car la fonction est asynchrone
+    const userSQL = await client.query({
         text: sql,
         values: [req.session.userId]
     })

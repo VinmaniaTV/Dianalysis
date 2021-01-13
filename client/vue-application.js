@@ -36,7 +36,7 @@ var app = new Vue({
                     }
                 })) {
                 this.connected = true;
-                router.push('/login')
+                router.push('/lobby')
             }
         },
         async logIn(user) {
@@ -50,7 +50,20 @@ var app = new Vue({
             if (userTeam.status === 200) {
                 this.team = userTeam.data;
                 this.connected = true;
-                router.push('/login')
+                router.push('/lobby')
+            }
+        },
+        async updateUser(modifiedUser) {
+            if (await axios.post('/api/updateUser/', modifiedUser)
+                .catch(function(error) {
+                    if (error.response.status === 400) {
+                        document.getElementById('errorModifyUserMessage').innerHTML = "Le pseudo est déjà pris.";
+                    } else if (error.response.status === 401) {
+                        document.getElementById('errorModifyUserMessage').innerHTML = "L'adresse email est déjà prise.";
+                    }
+                })) {
+                this.connected = true;
+                router.push('/lobby')
             }
         },
         async logOut() {
