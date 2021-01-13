@@ -1,5 +1,6 @@
 <template>
   <div id="first">
+    <navbar :connected="connected" @log-out="logOut"></navbar>
     <div class="gauche">
       <form>
         <h3>Vos informations</h3>
@@ -64,6 +65,23 @@
     </div>
   </div>
 </template>
+
+<script>
+const Navbar = window.httpVueLoader("./components/Navbar.vue");
+module.exports = {
+  props: {
+    connected: { type: Boolean }
+  },
+  components: {
+    Navbar,
+  },
+  methods: {
+    logOut () {
+      this.$emit('log-out')
+    },
+  }
+}
+</script>
 
 <style scoped>
 div#first

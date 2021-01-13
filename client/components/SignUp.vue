@@ -1,35 +1,124 @@
 <template>
-  <section>
-    <div id="container">
-      <form action="page d'inscription" method="post">
-        <h1>Inscription</h1>
+  <div>
+    <navbar :connected="connected" @log-out="logOut"></navbar>
+    <section>
+      <div id="container">
+        <form @submit.prevent="addUser">
+          <h1>Inscription</h1>
 
-        <div>
-          <label for="name">Nom* :</label>
-          <input type="text" id="name" name="user_name" required />
-        </div>
-        <div>
-          <label for="Prénom">Prénom*:</label>
-          <input type="e" id="Prénom" name="user_firstname" required />
-        </div>
-        <div>
-          <label for="mail">E-mail* :</label>
-          <input type="email" id="mail" name="user_mail" required />
-        </div>
-        <div>
-          <label for="pseudo">Pseudo* :</label>
-          <input type="text" id="pseudo" name="user_pseudoname" required />
-        </div>
-        <div>
-          <label for="Numéro">Numéro de Téléphone:</label>
-          <input type="text" id="Numéro" name="user_number" />
-        </div>
+          <div>
+            <label for="name">Nom* :</label>
+            <input
+              type="text"
+              id="name"
+              name="user_name"
+              v-model="newUser.lastname"
+              required
+            />
+          </div>
+          <div>
+            <label for="firstname">Prénom*:</label>
+            <input
+              type="e"
+              id="firstname"
+              name="user_firstname"
+              v-model="newUser.firstname"
+              required
+            />
+          </div>
+          <div>
+            <label for="mail">E-mail* :</label>
+            <input
+              type="email"
+              id="mail"
+              name="user_mail"
+              v-model="newUser.email"
+              required
+            />
+          </div>
+          <div>
+            <label for="pseudo">Pseudo* :</label>
+            <input
+              type="text"
+              id="pseudo"
+              name="user_pseudoname"
+              v-model="newUser.username"
+              required
+            />
+          </div>
+          <div>
+            <label for="name">Mot de passe* :</label>
+            <input
+              type="password"
+              id="password"
+              v-model="newUser.password"
+              required
+            />
+          </div>
+          <div>
+            <label for="name">Confirmation mot de passe* :</label>
+            <input type="password" id="confirmationPassword" required />
+          </div>
+          <div>
+            <label for="Numéro">Numéro de Téléphone:</label>
+            <input
+              type="number"
+              id="Numéro"
+              name="user_number"
+              v-model="newUser.phone"
+            />
+          </div>
 
-        <input type="submit" value="S'inscrire"/>
-      </form>
-    </div>
-  </section>
+          <div>
+            <p id="errorSignUpMessage"></p>
+          </div>
+
+          <input type="submit" value="S'inscrire" />
+        </form>
+      </div>
+    </section>
+  </div>
 </template>
+
+<script>
+const Navbar = window.httpVueLoader("./components/Navbar.vue");
+module.exports = {
+  components: {
+    Navbar,
+  },
+  props: {
+    connected: { type: Boolean },
+  },
+  data() {
+    return {
+      newUser: {
+        username: "",
+        email: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+        phone: "",
+      },
+    };
+  },
+  methods: {
+    addUser() {
+      if (
+        document.getElementById("password").value ==
+        document.getElementById("confirmationPassword").value
+      ) {
+        this.$emit("add-user", this.newUser);
+      } else {
+        document.getElementById("errorSignUpMessage").innerHTML =
+          "Mot de passe non identique.";
+      }
+    },
+    logOut() {
+      this.$emit("log-out");
+    },
+  },
+};
+</script>
 
 <style scoped>
 section {
@@ -127,5 +216,9 @@ textarea:focus {
 
 form div {
   margin: 20px;
+}
+
+p {
+  color: red;
 }
 </style>

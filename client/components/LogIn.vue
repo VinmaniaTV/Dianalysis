@@ -1,49 +1,84 @@
 <template>
-  <section>
-    <div id="container">
-      <!-- zone de connexion -->
+  <div>
+    <navbar :connected="connected" @log-out="logOut"></navbar>
+    <section>
+      <div id="container">
+        <!-- zone de connexion -->
 
-      <form action="verification.php" method="POST">
-        <h1>Connexion</h1>
+        <form @submit.prevent="logIn">
+          <h1>Connexion</h1>
 
-        <label><b>Nom d'utilisateur</b></label>
-        <input
-          type="text"
-          placeholder="Entrer le nom d'utilisateur"
-          name="username"
-          required
-        />
+          <label><b>Nom d'utilisateur ou E-mail</b></label>
+          <input
+            type="text"
+            v-model="user.username"
+            placeholder="Entrer le nom d'utilisateur"
+            name="username"
+            required
+          />
 
-        <label><b>Mot de passe</b></label>
-        <input
-          type="password"
-          placeholder="Entrer le mot de passe"
-          name="password"
-          required
-        />
+          <label><b>Mot de passe</b></label>
+          <input
+            type="password"
+            v-model="user.password"
+            placeholder="Entrer le mot de passe"
+            name="password"
+            required
+          />
 
-        <input type="submit" id="submit" value="Connexion" />
-      </form>
-    </div>
-  </section>
+          <div>
+            <p id="errorLogInMessage"></p>
+          </div>
+
+          <input type="submit" id="submit" value="Connexion" />
+        </form>
+      </div>
+    </section>
+  </div>
 </template>
 
-<style scoped>
+<script>
+const Navbar = window.httpVueLoader("./components/Navbar.vue");
+module.exports = {
+  components: {
+    Navbar,
+  },
+  props: {
+    connected: { type: Boolean }
+  },
+  data() {
+    return {
+      user: {
+        username: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    logIn() {
+      this.$emit("log-in", this.user);
+    },
+    logOut () {
+      this.$emit('log-out')
+    }
+  },
+};
+</script>
 
+<style scoped>
 section {
   background: linear-gradient(#071e38, #040614);
-  height: calc(100vh - 371px);
+  height: calc(100vh - 305px);
   min-height: 500px;
   display: flex;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 #container {
   width: 400px;
   margin: 0 auto;
 }
 
-/* Bordered form */
 form {
   padding: 30px;
   border: 1px solid #f1f1f1;
@@ -59,7 +94,6 @@ form {
   text-align: center;
 }
 
-/* Full-width inputs */
 input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -71,7 +105,6 @@ input[type="password"] {
   border-radius: 4px;
 }
 
-/* Set a style for all buttons */
 input[type="submit"] {
   background-color: #53af57;
   color: white;
@@ -88,5 +121,9 @@ input[type="submit"]:hover {
   background-color: white;
   color: #53af57;
   border: 1px solid #53af57;
+}
+
+p {
+  color: red;
 }
 </style>

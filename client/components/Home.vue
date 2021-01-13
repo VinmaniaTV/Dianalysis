@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar :connected="connected" @log-out="logOut"></navbar>
     <div id="showcase">
       <div>
         <h1>Bienvenue sur Dianalysis</h1>
@@ -91,6 +92,23 @@
   </div>
 </template>
 
+<script>
+const Navbar = window.httpVueLoader("./components/Navbar.vue");
+module.exports = {
+  props: {
+    connected: { type: Boolean }
+  },
+  components: {
+    Navbar,
+  },
+  methods: {
+    logOut () {
+      this.$emit('log-out')
+    },
+  }
+}
+</script>
+
 <style scoped>
 #showcase {
   background-image: url("../img/bgHome.jpg");
@@ -168,15 +186,3 @@ h4 {
   font-size: 30px;
 }
 </style>
-
-<script>
-module.exports = {
-  props: {
-    show: Boolean,
-  },
-  data() {
-    return {};
-  },
-  methods: {},
-};
-</script>
