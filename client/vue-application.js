@@ -3,15 +3,21 @@ const LogIn = window.httpVueLoader('./components/LogIn.vue')
 const SignUp = window.httpVueLoader('./components/SignUp.vue')
 const Lobby = window.httpVueLoader('./components/Lobby.vue')
 const Profile = window.httpVueLoader('./components/Profile.vue')
-const Programme = window.httpVueLoader('./components/programme.vue')
+const Sample = window.httpVueLoader('./components/Sample.vue')
+const Food = window.httpVueLoader('./components/Food.vue')
+const Advices = window.httpVueLoader('./components/Advices.vue')
+const History = window.httpVueLoader('./components/History.vue')
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/login', component: LogIn },
-  { path: '/signup', component: SignUp },
-  { path: '/lobby', component: Lobby },
-  { path: '/me', component: Profile },
-  { path: '/programme', component: Programme },
+    { path: '/', component: Home },
+    { path: '/login', component: LogIn },
+    { path: '/signup', component: SignUp },
+    { path: '/lobby', component: Lobby },
+    { path: '/me', component: Profile },
+    { path: '/sample', component: Sample },
+    { path: '/food', component: Food },
+    { path: '/advices', component: Advices },
+    { path: '/history', component: History },
 ]
 
 const router = new VueRouter({
