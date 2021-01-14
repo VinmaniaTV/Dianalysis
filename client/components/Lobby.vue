@@ -35,8 +35,8 @@ module.exports = {
 
 <style scoped>
 .title_container{
-    background: rgb(1,25,68);
-    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 182) 46%, rgba(1,25,68,1) 100%);
+    background: linear-gradient(#071e38, #040614);
+    background: linear-gradient(90deg, #071e38 0%, rgb(2, 2, 146) 46%, #071e38 100%);
     font-size: 60px;
     padding-top: 10px;
     color: white;
@@ -53,7 +53,7 @@ h2{
   color:#fff;
 }
 section {
-  background-color: rgba(1,25,68,1);
+  background: linear-gradient(#071e38, #040614);
 }
 
 
@@ -84,7 +84,7 @@ section {
 .summary:hover {
   text-decoration: none;
   color: white;
-  background: linear-gradient(to right, #2d3f61, #2051ad, #2d3f61);
+  background: linear-gradient(to right, #4f596d, #2051ad, #4f596d);
   transition: 1s, 1s, 1s;
   font-size: 50px;
   width: 900px;
