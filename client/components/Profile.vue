@@ -2,6 +2,7 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <div class="profile_container">
+      
       <form id="form_profile">
       <h3 id="vos_informations">Vos informations</h3>
     <div class="collum">

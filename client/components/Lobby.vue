@@ -1,7 +1,7 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <nav class="">
+    <nav class="Titre">
       <h2>(Re)Bonjour à vous !</h2>
     </nav>
     <div id="section_y">
@@ -10,8 +10,7 @@
         <router-link class="summary" to="/sample">Prendre une mesure</router-link>
         <router-link class="summary" to="/food">Liste des aliments</router-link>
         <router-link class="summary" to="/advices">Nos conseils</router-link>
-        <router-link class="summary" to="/history">Votre historique</router-link
-        >
+        <router-link class="summary" to="/history">Votre historique</router-link>
       </div>
     </div>
   </section>
