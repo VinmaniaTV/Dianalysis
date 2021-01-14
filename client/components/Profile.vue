@@ -119,7 +119,7 @@ module.exports = {
 }
 
 #form_profile{
-  background-color:#011f5f;
+  background: linear-gradient(#071e38, #040614);
   flex-direction: column;
   margin: auto auto;
   flex-wrap: wrap;
@@ -174,7 +174,7 @@ input {
 
 .title_container {
     background: rgb(1,31,95);
-    background: linear-gradient(90deg, rgba(1,31,95,1) 0%, rgb(3, 3, 182) 46%, rgba(1,31,95,1) 100%);
+    background: linear-gradient(90deg, #071e38 0%, rgb(2, 2, 146)  46%, #071e38 100%);
     font-size: 45px;
     padding-top: 20px;
     color: white;
@@ -186,7 +186,7 @@ input {
 }
 
 section {
-background-color: rgba(1,25,68,1);
+background: linear-gradient(#071e38, #040614);
 }
 
 .button_style{
