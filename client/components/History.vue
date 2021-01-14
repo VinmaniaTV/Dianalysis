@@ -4,7 +4,7 @@
     <div>
       <advanced-search v-model="model" :options="options"> </advanced-search>
     </div>
-kzmaeldkamlk  
+    leche mes fesses guillaume 
   </section>
 </template>
 

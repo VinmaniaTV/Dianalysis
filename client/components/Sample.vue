@@ -187,6 +187,8 @@ module.exports = {
 </script>
 
 <style scoped>
+
+
 p {
   text-align: center;
   margin-top: 50px;
@@ -213,7 +215,7 @@ section{
 
 form{
   border: 4mm ridge;
-  width: 700px;
+  width: auto;
   margin: auto auto;
   padding: 20px;
 }
@@ -242,6 +244,7 @@ p {
 
 input{
   margin: 20px;
+  
 }
 
 .titre_centre{
@@ -257,7 +260,7 @@ input{
     text-align: center;
     justify-content: center;
     margin: auto;
-    height: 110px;
+    height: 100px;
     margin: 0;
 }
 

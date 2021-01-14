@@ -34,8 +34,22 @@ module.exports = {
 </script>
 
 <style scoped>
+.title_container{
+    background: rgb(1,25,68);
+    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 182) 46%, rgba(1,25,68,1) 100%);
+    font-size: 60px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    height: 110px;
+    margin: 0;
+}
+
+
 h2{
-  margin-left:100px;
+  margin-left:50px;
   color:#fff;
 }
 section {
@@ -71,7 +85,7 @@ section {
   text-decoration: none;
   color: white;
   background: linear-gradient(to right, #2d3f61, #2051ad, #2d3f61);
-  transition: 1s, 1s, 2s;
+  transition: 1s, 1s, 1s;
   font-size: 50px;
   width: 900px;
 }
