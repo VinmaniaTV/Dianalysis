@@ -107,7 +107,6 @@ module.exports = {
 
 .data_profile{
   color:white;
-  text-align: center;
   margin: 50px;
   
 
@@ -174,10 +173,10 @@ input {
 }
 
 .title_container {
-    background: rgb(1,25,68);
-    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
-    font-size: 60px;
-    padding-top: 10px;
+    background: rgb(1,31,95);
+    background: linear-gradient(90deg, rgba(1,31,95,1) 0%, rgb(3, 3, 182) 46%, rgba(1,31,95,1) 100%);
+    font-size: 45px;
+    padding-top: 20px;
     color: white;
     text-align: center;
     justify-content: center;

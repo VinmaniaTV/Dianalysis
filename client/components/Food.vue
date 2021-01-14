@@ -1,10 +1,11 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <div>
+    <div id="back">
       <nav>
-        <h2>Liste des aliments</h2>
+        <h2 class="title_container">Liste des aliments</h2>
       </nav>
+      
       <table>
         <thead>
           <tr>
@@ -14,6 +15,7 @@
             <th>Sous-sous-groupe</th>
             <th>Glucose (g/100g)</th>
           </tr>
+
         </thead>
         <tbody>
           <tr v-for="f in food" :key="f.id">
@@ -46,3 +48,45 @@ module.exports = {
   },
 };
 </script>
+<style scoped>
+button{
+  border-radius:5px;
+}
+tr{
+  font-size:1.3em;
+  font-weight:bold;
+
+}
+#back{
+  background-color: rgb(243, 243, 196);
+
+}
+.title_container {
+    background: rgb(1,31,95);
+    background: linear-gradient(90deg, rgba(1,31,95,1) 0%, rgb(3, 3, 182) 46%, rgba(1,31,95,1) 100%);
+    font-size: 45px;
+    padding-top: 20px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    height: 110px;
+    margin: 0;
+}
+table{
+  border-collapse: collapse
+}
+td{
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  font-size:medium;
+  background-color: rgb(255, 255, 255);
+}
+th{
+  font-size:200;
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+}
+</style>
