@@ -41,21 +41,9 @@ h2{
 section {
   background-color: rgba(1,25,68,1);
 }
-.title_container {
-  background: rgb(1,25,68);
-  background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
-  font-size: 60px;
-  padding-top: 10px;
-  color: white;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  height: 110px;
-  margin: 0;
-}
+
 
 .section_y {
-  background-image: url();
   height: 1vh;
   text-align: center;
 }
@@ -76,15 +64,14 @@ section {
   border-radius: 10px;
   padding-top: 35px;
   margin-top: 5px;
-  margin-bottom:5px;
-  
+  margin-bottom:5px; 
 }
 
 .summary:hover {
   text-decoration: none;
   color: white;
   background: linear-gradient(to right, #2d3f61, #2051ad, #2d3f61);
-  transition: 1s, 1s;
+  transition: 1s, 1s, 2s;
   font-size: 50px;
   width: 900px;
 }
