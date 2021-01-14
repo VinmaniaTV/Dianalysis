@@ -18,9 +18,9 @@
         <tbody>
           <tr v-for="f in food" :key="f.id">
             <td>{{ f.name }}</td>
-            <td>{{ f.group }}</td>
-            <td>{{ f.sgroup }}</td>
-            <td>{{ f.ssgroup }}</td>
+            <td>{{ f.groupf }}</td>
+            <td>{{ f.sgroupf }}</td>
+            <td>{{ f.ssgroupf }}</td>
             <td>{{ f.glucose }}</td>
           </tr>
         </tbody>

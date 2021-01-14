@@ -241,17 +241,115 @@ router.post('/sample', async(req, res) => {
     const dish = req.body.dish
     const accompaniment = req.body.accompaniment
     const dessert = req.body.dessert
+    const quantityentrance = parseFloat(req.body.quantityentrance)
+    const quantitydish = parseFloat(req.body.quantitydish)
+    const quantityaccompaniment = parseFloat(req.body.quantityaccompaniment)
+    const quantitydessert = parseFloat(req.body.quantitydessert)
 
+    console.log(entrance == "")
+    console.log(dish)
+    console.log(quantitydish)
+
+    /*
+    // Vérifie si le plat existe dans la base de données
     const sqlCheck = "SELECT * FROM food WHERE name=$1"
-    const checkExists = await client.query({
-        text: sqlUser,
-        values: [sqlCheck]
+    const getDish = await client.query({
+        text: sqlCheck,
+        values: [dish]
     })
 
-    if (checkExists.rowCount === 0) {
+    if (getDish.rowCount === 0) {
         res.status(401).json({ message: 'dish doesn\'t exists' });
         return
     }
+
+    // Crée l'échantillonnage dans la base de données
+    const newSampleSql = "INSERT INTO sample (userid) VALUES ($1)"
+    await client.query({
+        text: newSampleSql,
+        values: [req.session.userId]
+    })
+
+    // Récupère l'échantillonnage précédement crée
+    const getSampleSql = "SELECT * FROM sample WHERE userid = $1 ORDER BY id DESC"
+    const sample = await client.query({
+        text: getSampleSql,
+        values: [req.session.userId]
+    })
+
+    // Insère le plat de l'utilisateur dans la base de données
+    const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+    await client.query({
+        text: newDishSql,
+        values: [sample.rows[0], getDish.rows[0].id, quantitydish, "dish"]
+    })
+
+    // Insère l'entrée de l'utilisateur dans la base de données, si entré par l'utilisateur
+    if (entrance != "") {
+        const getEntranceSql = "SELECT * FROM food WHERE name=$1"
+        const getEntrance = await client.query({
+            text: getEntranceSql,
+            values: [entrance]
+        })
+
+        if (getEntrance.rowCount === 0) {
+            res.status(401).json({ message: 'entrance doesn\'t exists' });
+            return
+        }
+
+        const newEntranceSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+        await client.query({
+            text: newEntranceSql,
+            values: [sample.rows[0], getEntrance.rows[0].id, quantityentrance, "Entrance"]
+        })
+    }
+
+    // Insère l'accompagnement de l'utilisateur dans la base de données, si entré par l'utilisateur
+    if (accompaniment != "") {
+        const getAccompanimentSql = "SELECT * FROM food WHERE name=$1"
+        const getAccompaniment = await client.query({
+            text: getAccompanimentSql,
+            values: [accompaniment]
+        })
+
+        if (getAccompaniment.rowCount === 0) {
+            res.status(401).json({ message: 'accompaniment doesn\'t exists' });
+            return
+        }
+
+        const newAccompanimentSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+        await client.query({
+            text: newAccompanimentSql,
+            values: [sample.rows[0], getAccompaniment.rows[0].id, quantityaccompaniment, "accompaniment"]
+        })
+    }
+
+    // Insère le déssert de l'utilisateur dans la base de données, si entré par l'utilisateur
+    if (dessert != "") {
+        const getDessertSql = "SELECT * FROM food WHERE name=$1"
+        const getDessert = await client.query({
+            text: getDessertSql,
+            values: [dessert]
+        })
+
+        if (getDessert.rowCount === 0) {
+            res.status(401).json({ message: 'dessert doesn\'t exists' });
+            return
+        }
+
+        const newDessertSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+        await client.query({
+            text: newDessertSql,
+            values: [sample.rows[0], getDessert.rows[0].id, quantitydessert, "dessert"]
+        })
+    }
+
+    // Insère le l'entrée de l'utilisateur dans la base de données
+    const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3)"
+    await client.query({
+        text: newDishSql,
+        values: [sample.rows[0], getDish.rows[0].id, quantitydish]
+    })
 
     if (await bcrypt.compare(password, checkExists.rows[0].password)) {
         req.session.userId = checkExists.rows[0].id
@@ -262,6 +360,7 @@ router.post('/sample', async(req, res) => {
         return res.status(401).json({ message: 'wrong password' })
 
     }
+    */
 })
 
 module.exports = router
