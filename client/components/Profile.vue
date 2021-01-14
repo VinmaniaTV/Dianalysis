@@ -3,7 +3,7 @@
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <div class="profile_container">
       <form id="form_profile">
-      <h3 id="vos_informations">Vos informations</h3>
+      <h2 class="title_container">Vos informations</h2>
     <div class="collum">
       <div class="collum1">
         <div class="data_profile">
@@ -128,8 +128,8 @@ module.exports = {
   padding: 60px;
   width: 100%;
   height: clac(100vh - 200px);
-  
 }
+
 .collum{
   display: flex;
   flex-direction: row;
@@ -167,5 +167,41 @@ input {
 
 #errorModifyUserMessage{
   margin: 0;
+}
+
+.titre_centre{
+    text-align: center;
+}
+
+.title_container {
+    background: rgb(1,25,68);
+    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+    font-size: 60px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    height: 110px;
+    margin: 0;
+}
+
+section {
+background-color: rgba(1,25,68,1);
+}
+
+.button_style{
+    color:rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(27, 44, 194);
+    border-radius:10px;
+    display: block;
+    margin: auto auto;
+    height: 2em;
+    margin-top: 10px;
+  }
+
+#errorSampleMessage{
+    margin: 0;
 }
 </style>

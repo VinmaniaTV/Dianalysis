@@ -1,8 +1,9 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <form @submit.prevent="addSample">
-      <h1 class="titre_centre">Prise d'une mesure</h1>
+    <h2 class="title_container">Prise d'une mesure</h2>
+
+    <form @submit.prevent="addSample">     
       <table id="formMesure">
         <thead>
           <tr>
@@ -188,6 +189,11 @@ p {
   margin-top: 50px;
 }
 
+label, th{
+  color: white;
+  font-size: 20px;
+}
+
 body {
   text-align: center;
   margin-top: 300px;
@@ -198,11 +204,15 @@ div {
 
 section{
   height: calc(100vh - 320px);
-  background-color: blue;
 }
 
-#formMesure{
+
+
+form{
+  border: 4mm ridge;
+  width: 700px;
   margin: auto auto;
+  padding: 20px;
 }
 
 
@@ -227,10 +237,44 @@ p {
   color: red;
 }
 
-table{
-  background-color: red;
-
+input{
+  margin: 20px;
 }
 
+.titre_centre{
+    text-align: center;
+}
+
+.title_container {
+    background: rgb(1,25,68);
+    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+    font-size: 60px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    height: 110px;
+    margin: 0;
+}
+
+section {
+background-color: rgba(1,25,68,1);
+}
+
+.button_style{
+    color:rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(27, 44, 194);
+    border-radius:10px;
+    display: block;
+    margin: auto auto;
+    height: 2em;
+    margin-top: 10px;
+  }
+
+#errorSampleMessage{
+    margin: 0;
+}
 
 </style>
