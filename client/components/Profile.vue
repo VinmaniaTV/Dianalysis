@@ -2,6 +2,7 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <div class="profile_container">
+      
       <form id="form_profile">
       <h3 id="vos_informations">Vos informations</h3>
     <div class="collum">
@@ -100,7 +101,7 @@ module.exports = {
   padding-top:20px
 }
 .input_style{
-
+  
   border-color:rgb(73, 89, 231);
   border-radius: 10px;
   
@@ -114,6 +115,7 @@ module.exports = {
 
   }
 .profile_container{
+  background-image: url("../img/fondbleu.jpg");
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -162,16 +164,13 @@ input {
   color:white;
   margin: auto;
   text-align: center;
-  
-  
-  
 }
 
 #errorModifyUserMessage{
   margin: 0;
 }
 #button_valider{
-  color:white;
+  color:rgb(255, 255, 255);
   border-color: rgb(0, 0, 0);
   background-color: rgb(27, 44, 194);
   border-radius:10px;

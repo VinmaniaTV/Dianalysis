@@ -1,7 +1,7 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <nav class="">
+    <nav class="Titre">
       <h2>(Re)Bonjour à vous !</h2>
     </nav>
     <div id="section_y">
@@ -10,8 +10,7 @@
         <router-link class="summary" to="/sample">Prendre une mesure</router-link>
         <router-link class="summary" to="/food">Liste des aliments</router-link>
         <router-link class="summary" to="/advices">Nos conseils</router-link>
-        <router-link class="summary" to="/history">Votre historique</router-link
-        >
+        <router-link class="summary" to="/history">Votre historique</router-link>
       </div>
     </div>
   </section>
@@ -36,16 +35,16 @@ module.exports = {
 
 <style scoped>
 h2{
-
+  margin-left:100px;
   color:#fff;
 }
 section {
   background-color: rgba(1,25,68,1);
 }
 .title_container {
-background: rgb(1,25,68);
-background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
-  font-size: 65px;
+  background: rgb(1,25,68);
+  background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+  font-size: 60px;
   padding-top: 10px;
   color: white;
   text-align: center;
@@ -74,18 +73,19 @@ background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(
   text-decoration: none;
   text-align: center;
   border: solid #000000;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-top: 35px;
   margin-top: 5px;
   margin-bottom:5px;
+  
 }
 
 .summary:hover {
   text-decoration: none;
   color: white;
   background: linear-gradient(to right, #2d3f61, #2051ad, #2d3f61);
-  transition: 2s, 2s;
-  font-size: 40px;
-  width: 1200px;
+  transition: 1s, 1s;
+  font-size: 50px;
+  width: 900px;
 }
 </style>

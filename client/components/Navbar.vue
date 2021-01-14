@@ -24,7 +24,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto w-100 d-flex justify-content-end">
-          <div v-if="connected === false">
+          <div v-if="connected === true">
             <li class="nav-item">
               <router-link class="nav-link" to="/">Accueil</router-link>
             </li>
@@ -84,7 +84,7 @@ header nav {
   height: 70px;
   display: flex;
   align-items: center;
-  background-color: #282828;
+  background-color: #0e0c0c;
   padding: 10px;
 }
 
@@ -99,7 +99,7 @@ header div {
 }
 
 .navbar {
-  background-color: #282828;
+  background-color: #0e0c0c;
 }
 
 .navbar .navbar-brand span {
@@ -139,15 +139,13 @@ header div {
 }
 
 .navbar .nav-item .nav-link:first-letter {
-  color: #3177fa;
-  
-
+  color: #1963a8;
 }
 
 .navbar-toggler-icon img {
   height: 100%;
 }
 #navbarNavDropdown {
-  background-color: #282828;
+  background-color: #0e0c0c;
 }
 </style>

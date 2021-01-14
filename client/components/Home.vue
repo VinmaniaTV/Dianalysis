@@ -43,13 +43,12 @@
               <img src="./img/stats.jpg" alt="img" />
             </aside>
             <article>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Aujourd’hui, on ne parle plus de régime pour les personnes diabétiques, mais d’une alimentation équilibrée. 
+              Celle-ci fait partie du traitement non médicamenteux du diabète, de même que la pratique d’une activité physique régulière adaptée. 
+              Il est nécessaire de connaître la composition des aliments. Les aliments sont constitués principalement de 3 grandes familles de nutriments. 
+              Il s’agit des glucides (sucres et féculents) ; des lipides (graisses) et des protéines (notamment présentes dans la viande, le poisson, les produits laitiers, etc.). 
+              Un diabétique se doit de contrôler son taux de glycémie et Dianalysis lui permet ainsi de se renseigner sur les aliments qu’il consomme.
+
             </article>
           </div>
         </div>
@@ -57,13 +56,10 @@
           <h4>Des conseils adaptés</h4>
           <div class="content">
             <article>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Dianalysis est issu de la volonté d’aider les personnes diabétiques à améliorer leur vie quotidienne et leur faciliter la vie avec la maladie. 
+              Nous avons communiqué avec un étudiant en M1 en médecine à la faculté des sciences de Nancy afin de garantir la sûreté et l’efficacité de notre projet. 
+              Dianalysis a aussi également été fortement portée par le centre de diététique Naturhouse à Thionville où une diététicienne agrée a validé l’efficacité du projet. 
+              Dianalysis est ainsi à même de vous accompagner au sein de votre transition nutritionnelle.
             </article>
             <aside>
               <img src="./img/advices.jpg" alt="img" />
@@ -77,13 +73,8 @@
               <img src="./img/knowledges.jpg" alt="img" />
             </aside>
             <article>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Dianalysis s’appuie sur une base de données contenant le taux de glucose de nombreux aliments et plats consommés dans votre vie quotidienne. 
+              Ainsi, lorsque vous vous interrogez sur votre repas à venir, pensez à Dianalysis ! Nous avons l’information qu’il vous faut pour rester en bonne santé !
             </article>
           </div>
         </div>
