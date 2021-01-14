@@ -265,7 +265,7 @@ router.get('/me', async(req, res) => {
 })
 
 /**
- * Cette route envoie l'intégralité des informations nutritives de la base de données
+ * Cette route envoie l'intégralité des informations nutritives de la base de données.
  */
 router.get('/datafood', async(req, res) => {
     const sql = "SELECT * FROM food ORDER BY id"
@@ -278,7 +278,7 @@ router.get('/datafood', async(req, res) => {
 })
 
 /**
- * Cette route permet de se connecter.
+ * Cette permet d'ajouter une mesure à la base de données.
  */
 router.post('/sample', async(req, res) => {
     const entrance = req.body.entrance
@@ -292,7 +292,7 @@ router.post('/sample', async(req, res) => {
 
     let total = 0;
 
-    // Vérifie si le plat existe dans la base de données
+    // Vérifie si le plat existe dans la base de données.
     const sqlCheck = "SELECT * FROM food WHERE name=$1"
     const getDish = await client.query({
         text: sqlCheck,
@@ -304,21 +304,21 @@ router.post('/sample', async(req, res) => {
         return
     }
 
-    // Crée l'échantillonnage dans la base de données
+    // Crée l'échantillonnage dans la base de données.
     const newSampleSql = "INSERT INTO sample (userid, date) VALUES ($1, $2)"
     await client.query({
         text: newSampleSql,
         values: [req.session.userId, new Date()]
     })
 
-    // Récupère l'échantillonnage précédement crée
+    // Récupère l'échantillonnage précédement crée.
     const getSampleSql = "SELECT * FROM sample WHERE userid = $1 ORDER BY id DESC"
     const sample = await client.query({
         text: getSampleSql,
         values: [req.session.userId]
     })
 
-    // Insère le plat de l'utilisateur dans la base de données
+    // Insère le plat de l'utilisateur dans la base de données.
     const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
     await client.query({
         text: newDishSql,
@@ -327,7 +327,7 @@ router.post('/sample', async(req, res) => {
 
     total += quantitydish * getDish.rows[0].tauxglucose / 100;
 
-    // Insère l'entrée de l'utilisateur dans la base de données, si entré par l'utilisateur
+    // Insère l'entrée de l'utilisateur dans la base de données, si entré par l'utilisateur.
     if (entrance != "") {
         const getEntranceSql = "SELECT * FROM food WHERE name=$1"
         const getEntrance = await client.query({
@@ -349,7 +349,7 @@ router.post('/sample', async(req, res) => {
         total += quantityentrance * getEntrance.rows[0].tauxglucose / 100;
     }
 
-    // Insère l'accompagnement de l'utilisateur dans la base de données, si entré par l'utilisateur
+    // Insère l'accompagnement de l'utilisateur dans la base de données, si entré par l'utilisateur.
     if (accompaniment != "") {
         const getAccompanimentSql = "SELECT * FROM food WHERE name=$1"
         const getAccompaniment = await client.query({
@@ -371,7 +371,7 @@ router.post('/sample', async(req, res) => {
         total += quantityaccompaniment * getAccompaniment.rows[0].tauxglucose / 100;
     }
 
-    // Insère le déssert de l'utilisateur dans la base de données, si entré par l'utilisateur
+    // Insère le déssert de l'utilisateur dans la base de données, si entré par l'utilisateur.
     if (dessert != "") {
         const getDessertSql = "SELECT * FROM food WHERE name=$1"
         const getDessert = await client.query({
@@ -393,7 +393,7 @@ router.post('/sample', async(req, res) => {
         total += quantitydessert * getDessert.rows[0].tauxglucose / 100;
     }
 
-    // Modifie le total de glucose en g présent dans le repas de l'utilisateur dans la base de données
+    // Modifie le total de glucose en g présent dans le repas de l'utilisateur dans la base de données.
     const updateSampleGlucoseSql = "UPDATE sample SET glucose = $1 WHERE id = $2"
     await client.query({
         text: updateSampleGlucoseSql,

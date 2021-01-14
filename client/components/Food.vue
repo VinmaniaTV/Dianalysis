@@ -1,33 +1,35 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <div id="back">
-      <nav>
-        <h2 class="title_container">Liste des aliments</h2>
-      </nav>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Groupe</th>
-            <th>Sous-groupe</th>
-            <th>Sous-sous-groupe</th>
-            <th>Glucose (g/100g)</th>
-          </tr>
-
-        </thead>
-        <tbody>
-          <tr v-for="f in food" :key="f.id">
-            <td>{{ f.name }}</td>
-            <td>{{ f.groupf }}</td>
-            <td>{{ f.sgroupf }}</td>
-            <td>{{ f.ssgroupf }}</td>
-            <td>{{ f.tauxglucose }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <article>
+      <div class="back">
+        <nav>
+          <h2 class="title_container">Liste des aliments</h2>
+        </nav>
+      </div>
+      <div id="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Groupe</th>
+              <th>Sous-groupe</th>
+              <th>Sous-sous-groupe</th>
+              <th>Glucose (g/100g)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="f in food" :key="f.id">
+              <td>{{ f.name }}</td>
+              <td>{{ f.groupf }}</td>
+              <td>{{ f.sgroupf }}</td>
+              <td>{{ f.ssgroupf }}</td>
+              <td>{{ f.tauxglucose }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
   </section>
 </template>
 
@@ -49,50 +51,98 @@ module.exports = {
 };
 </script>
 <style scoped>
-button{
-  border-radius:5px;
+section {
+  background-color: rgb(107, 107, 107);
+  font-family: 'Montserrat', sans-serif;
 }
-tr{
-  font-size:1.3em;
-  font-weight:bold;
 
+article {
+  background-color: #39CFF7;
+  height: 100%;
+  padding: 70px;
 }
-#back{
-  background-color: rgb(243, 243, 196);
 
+tr {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+article nav {
+  margin-top: 10%;
+}
+
+h2 {
+  text-shadow: 0px 0px 7px #000;
+  text-transform: uppercase;
+  font-weight: 550;
+  font-size: 70px !important;
+}
+
+h2:first-letter {
+  color: #1963a8;
+}
+
+.back {
+  background-image: url(../img/foodlistbg.jpg);
+  background-repeat: no-repeat;
+  background-size: 120%;
+  border: 4px solid #047DDE;
+  border-radius: 40px;
+  height: 120vh;
+  max-height: 720px;
 }
 
 .title_container {
-    background: rgb(1,25,68);
-    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
-    font-size: 50px;
-    padding-top: 10px;
-    color: white;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-    height: 100px;
-    margin: 0;
+  font-size: 45px;
+  padding-top: 20px;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  height: 110px;
+  margin: 0;
 }
 
-table{
-  border-collapse: collapse
-}
-td{
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
-  font-size:medium;
-  background-color: rgb(255, 255, 255);
-}
-th{
-  font-size:200;
-  text-align: center;
-  border: 1px solid black;
-  padding: 10px;
+table {
+  backdrop-filter: blur(0.3rem);
+  border-collapse: collapse;
+  border-radius: 10px;
+  border: none;
 }
 
-section{
-  height: 1vh;
+table {
+  top: -25em;
+  backdrop-filter: blur(0.3rem);
+  border-spacing: 0;
+  border-radius: 9px;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 3px;
+  border: 3px solid #B2E1F7;
+}
+
+
+#table {
+  border-radius: 10px;
+  position: relative;
+  top: -25em;
+  margin: 0 60px;
+  border: 1px solid #B2E1F7;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  font-size: medium;
+  border-radius: 1em;
+  padding: 10px;
+  border-right: 1px solid #B2E1F7;
+}
+
+th {
+  font-size: 200;
+  text-align: center;
+  padding: 10px;
+  border-right: 1px solid #B2E1F7;
 }
 </style>
