@@ -189,6 +189,7 @@ module.exports = {
 <style scoped>
 
 
+
 p {
   text-align: center;
   margin-top: 50px;
@@ -214,10 +215,11 @@ section{
 
 
 form{
-  border: 4mm ridge;
+  border: 2mm ridge;
   width: auto;
-  margin: auto auto;
-  padding: 20px;
+  margin: auto;
+  width: 1600px;
+  padding: 30px;
 }
 
 
@@ -254,7 +256,7 @@ input{
 .title_container {
     background: rgb(1,25,68);
     background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
-    font-size: 60px;
+    font-size: 50px;
     padding-top: 10px;
     color: white;
     text-align: center;
