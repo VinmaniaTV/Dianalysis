@@ -7,11 +7,19 @@ const { Client } = require('pg')
 const client = new Client({
     user: 'postgres',
     host: 'localhost',
-    password: 'adame14789632',
+    password: 'admin',
     database: 'Dianalysis'
 })
 
 client.connect()
+
+class UserData {
+    constructor() {
+        this.createdAt = new Date()
+        this.updatedAt = new Date()
+        this.history = []
+    }
+}
 
 /**
  * Cette route inscrit un utilisateur.
@@ -58,6 +66,7 @@ router.post('/register', async(req, res) => {
         values: [username]
     })
     req.session.userId = userData.rows[0].id
+    req.session.userdata = new UserData()
         // on envoie l'id du user ajouté à l'utilisateur
     res.json(userData.rows[0].id)
 })
@@ -170,9 +179,44 @@ router.post('/login', async(req, res) => {
 
     if (await bcrypt.compare(password, checkExists.rows[0].password)) {
         req.session.userId = checkExists.rows[0].id
+        req.session.userdata = new UserData()
 
-        // on envoie le nom du user au client.
-        return res.json(username)
+        const sqlUserData = 'SELECT sample.id AS sampleid, sample.glucose AS glucose, sample.date AS date, sampledetails.id AS sampledetailsid, sampledetails.foodid AS foodid, sampledetails.quantity AS quantity, sampledetails.type AS type FROM sample INNER JOIN sampledetails on sample.id = sampledetails.sampleid WHERE userid = $1'
+        const userData = await client.query({
+            text: sqlUserData,
+            values: [req.session.userId]
+        })
+        userData.rows.forEach(row => {
+            if ((req.session.userdata.history.findIndex((i) => i.id == row.id) == -1)) {
+                const sample = {
+                    sampleid: row.sampleid,
+                    glucose: row.glucose,
+                    date: (row.date.getDate() + "-" + (row.date.getMonth() + 1) + "-" + row.date.getFullYear() + " " + row.date.getHours() + ":" + row.date.getMinutes() + ":" + row.date.getSeconds()),
+                    details: [],
+                }
+
+                const sampledetails = {
+                    sampledetailsid: row.sampledetailsid,
+                    foodid: row.foodid,
+                    quantity: row.quantity,
+                    type: row.type
+                }
+                sample.details.push(sampledetails)
+
+                req.session.userdata.history.push(sample)
+            } else {
+                const sampledetails = {
+                    sampledetailsid: row.sampledetailsid,
+                    foodid: row.foodid,
+                    quantity: row.quantity,
+                    type: row.type
+                }
+                req.session.userdata.history[req.session.userdata.history.findIndex((i) => i.id == row.id)].details.push(sampledetails)
+            }
+        });
+
+        // on envoie les données du user au client.
+        return res.json(req.session.userdata)
     } else {
         return res.status(401).json({ message: 'wrong password' })
 
@@ -261,10 +305,10 @@ router.post('/sample', async(req, res) => {
     }
 
     // Crée l'échantillonnage dans la base de données
-    const newSampleSql = "INSERT INTO sample (userid) VALUES ($1)"
+    const newSampleSql = "INSERT INTO sample (userid, date) VALUES ($1, $2)"
     await client.query({
         text: newSampleSql,
-        values: [req.session.userId]
+        values: [req.session.userId, new Date()]
     })
 
     // Récupère l'échantillonnage précédement crée
@@ -278,7 +322,7 @@ router.post('/sample', async(req, res) => {
     const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
     await client.query({
         text: newDishSql,
-        values: [sample.rows[0].id, getDish.rows[0].id, quantitydish, "dish"]
+        values: [sample.rows[0].id, getDish.rows[0].id, quantitydish, "plat"]
     })
 
     total += quantitydish * getDish.rows[0].tauxglucose / 100;
@@ -299,7 +343,7 @@ router.post('/sample', async(req, res) => {
         const newEntranceSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
         await client.query({
             text: newEntranceSql,
-            values: [sample.rows[0].id, getEntrance.rows[0].id, quantityentrance, "Entrance"]
+            values: [sample.rows[0].id, getEntrance.rows[0].id, quantityentrance, "entrée"]
         })
 
         total += quantityentrance * getEntrance.rows[0].tauxglucose / 100;
@@ -321,7 +365,7 @@ router.post('/sample', async(req, res) => {
         const newAccompanimentSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
         await client.query({
             text: newAccompanimentSql,
-            values: [sample.rows[0].id, getAccompaniment.rows[0].id, quantityaccompaniment, "accompaniment"]
+            values: [sample.rows[0].id, getAccompaniment.rows[0].id, quantityaccompaniment, "accompagnement"]
         })
 
         total += quantityaccompaniment * getAccompaniment.rows[0].tauxglucose / 100;

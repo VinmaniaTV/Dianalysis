@@ -7,6 +7,7 @@ const Sample = window.httpVueLoader('./components/Sample.vue')
 const Food = window.httpVueLoader('./components/Food.vue')
 const Advices = window.httpVueLoader('./components/Advices.vue')
 const History = window.httpVueLoader('./components/History.vue')
+const HistoryDetails = window.httpVueLoader('./components/HistoryDetails.vue')
 
 const routes = [
     { path: '/', component: Home },
@@ -18,6 +19,7 @@ const routes = [
     { path: '/food', component: Food },
     { path: '/advices', component: Advices },
     { path: '/history', component: History },
+    { path: '/details/:id', component: HistoryDetails },
 ]
 
 const router = new VueRouter({
@@ -29,6 +31,7 @@ var app = new Vue({
     el: '#app',
     data: {
         food: [],
+        userdata: [],
         connected: false
     },
     async mounted() {
@@ -50,15 +53,15 @@ var app = new Vue({
             }
         },
         async logIn(user) {
-            const userTeam = await axios.post('/api/login/', user)
+            const userData = await axios.post('/api/login/', user)
                 .catch(function(error) {
                     if (error.response.status === 400 || error.response.status === 401) {
                         document.getElementById('errorLogInMessage').innerHTML = "La combinaison est incorrecte.";
                         return error.response;
                     }
                 })
-            if (userTeam.status === 200) {
-                this.team = userTeam.data;
+            if (userData.status === 200) {
+                this.userdata = userData.data;
                 this.connected = true;
                 router.push('/lobby')
             }
