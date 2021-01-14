@@ -241,27 +241,128 @@ router.post('/sample', async(req, res) => {
     const dish = req.body.dish
     const accompaniment = req.body.accompaniment
     const dessert = req.body.dessert
+    const quantityentrance = parseFloat(req.body.quantityentrance)
+    const quantitydish = parseFloat(req.body.quantitydish)
+    const quantityaccompaniment = parseFloat(req.body.quantityaccompaniment)
+    const quantitydessert = parseFloat(req.body.quantitydessert)
 
+    let total = 0;
+
+    // Vérifie si le plat existe dans la base de données
     const sqlCheck = "SELECT * FROM food WHERE name=$1"
-    const checkExists = await client.query({
-        text: sqlUser,
-        values: [sqlCheck]
+    const getDish = await client.query({
+        text: sqlCheck,
+        values: [dish]
     })
 
-    if (checkExists.rowCount === 0) {
+    if (getDish.rowCount === 0) {
         res.status(401).json({ message: 'dish doesn\'t exists' });
         return
     }
 
-    if (await bcrypt.compare(password, checkExists.rows[0].password)) {
-        req.session.userId = checkExists.rows[0].id
+    // Crée l'échantillonnage dans la base de données
+    const newSampleSql = "INSERT INTO sample (userid) VALUES ($1)"
+    await client.query({
+        text: newSampleSql,
+        values: [req.session.userId]
+    })
 
-        // on envoie le nom du user au client.
-        return res.json(username)
-    } else {
-        return res.status(401).json({ message: 'wrong password' })
+    // Récupère l'échantillonnage précédement crée
+    const getSampleSql = "SELECT * FROM sample WHERE userid = $1 ORDER BY id DESC"
+    const sample = await client.query({
+        text: getSampleSql,
+        values: [req.session.userId]
+    })
 
+    // Insère le plat de l'utilisateur dans la base de données
+    const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
+    await client.query({
+        text: newDishSql,
+        values: [sample.rows[0].id, getDish.rows[0].id, quantitydish, "dish"]
+    })
+
+    total += quantitydish * getDish.rows[0].tauxglucose / 100;
+
+    // Insère l'entrée de l'utilisateur dans la base de données, si entré par l'utilisateur
+    if (entrance != "") {
+        const getEntranceSql = "SELECT * FROM food WHERE name=$1"
+        const getEntrance = await client.query({
+            text: getEntranceSql,
+            values: [entrance]
+        })
+
+        if (getEntrance.rowCount === 0) {
+            res.status(401).json({ message: 'entrance doesn\'t exists' });
+            return
+        }
+
+        const newEntranceSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
+        await client.query({
+            text: newEntranceSql,
+            values: [sample.rows[0].id, getEntrance.rows[0].id, quantityentrance, "Entrance"]
+        })
+
+        total += quantityentrance * getEntrance.rows[0].tauxglucose / 100;
     }
+
+    // Insère l'accompagnement de l'utilisateur dans la base de données, si entré par l'utilisateur
+    if (accompaniment != "") {
+        const getAccompanimentSql = "SELECT * FROM food WHERE name=$1"
+        const getAccompaniment = await client.query({
+            text: getAccompanimentSql,
+            values: [accompaniment]
+        })
+
+        if (getAccompaniment.rowCount === 0) {
+            res.status(401).json({ message: 'accompaniment doesn\'t exists' });
+            return
+        }
+
+        const newAccompanimentSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
+        await client.query({
+            text: newAccompanimentSql,
+            values: [sample.rows[0].id, getAccompaniment.rows[0].id, quantityaccompaniment, "accompaniment"]
+        })
+
+        total += quantityaccompaniment * getAccompaniment.rows[0].tauxglucose / 100;
+    }
+
+    // Insère le déssert de l'utilisateur dans la base de données, si entré par l'utilisateur
+    if (dessert != "") {
+        const getDessertSql = "SELECT * FROM food WHERE name=$1"
+        const getDessert = await client.query({
+            text: getDessertSql,
+            values: [dessert]
+        })
+
+        if (getDessert.rowCount === 0) {
+            res.status(401).json({ message: 'dessert doesn\'t exists' });
+            return
+        }
+
+        const newDessertSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
+        await client.query({
+            text: newDessertSql,
+            values: [sample.rows[0].id, getDessert.rows[0].id, quantitydessert, "dessert"]
+        })
+
+        total += quantitydessert * getDessert.rows[0].tauxglucose / 100;
+    }
+
+    // Modifie le total de glucose en g présent dans le repas de l'utilisateur dans la base de données
+    const updateSampleGlucoseSql = "UPDATE sample SET glucose = $1 WHERE id = $2"
+    await client.query({
+        text: updateSampleGlucoseSql,
+        values: [total, sample.rows[0].id]
+    })
+
+    const getFinalSampleSql = "SELECT * FROM sample WHERE id = $1"
+    const finalSample = await client.query({
+        text: getFinalSampleSql,
+        values: [sample.rows[0].id]
+    })
+
+    return res.json(finalSample.rows[0])
 })
 
 module.exports = router

@@ -18,6 +18,7 @@
               <select
                 type="text"
                 name="entrance"
+                id="entrance"
                 placeholder="Selectionnez l'entrée"
                 v-model="newSample.entrance"
               >
@@ -72,6 +73,7 @@
               <select
                 type="text"
                 name="accompaniment"
+                id="accompaniment"
                 placeholder="Selectionnez l'accompagnement"
                 v-model="newSample.accompaniment"
               >
@@ -98,6 +100,7 @@
               <select
                 type="text"
                 name="dessert"
+                id="dessert"
                 placeholder="Selectionnez le dessert"
                 v-model="newSample.dessert"
               >
@@ -121,7 +124,7 @@
         </tbody>
       </table>
       <div>
-        <button class="button_style" @click="addSample()">Envoyer</button>
+        <button class="button_style" type="submit">Envoyer</button>
       </div>
       <p id="errorSampleMessage"></p>
     </form>
@@ -173,7 +176,7 @@ module.exports = {
         document.getElementById("errorSampleMessage").innerHTML =
           "Sélectionnez une quantité pour le(s) aliment(s) sélectionné(s).";
       } else {
-        this.$emit("add-sample", newSample);
+        this.$emit("add-sample", this.newSample);
       }
     },
     logOut() {

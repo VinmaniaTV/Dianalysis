@@ -90,8 +90,9 @@ var app = new Vue({
         async addSample(newSample) {
             if (await axios.post('/api/sample/', newSample)
                 .catch(function(error) {
-                    if (error.response.status === 401) {
-                        document.getElementById('errorSampleMessage').innerHTML = "Sélectionnez au moins un plat.";
+                    if (error.response.status === 400 || error.response.status === 401) {
+                        document.getElementById('errorSampleMessage').innerHTML = "Le plat n'existe pas.";
+                        console.log(error)
                     }
                 })) {
                 router.push('/lobby')
