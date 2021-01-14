@@ -243,9 +243,9 @@ router.post('/sample', async(req, res) => {
     const dessert = req.body.dessert
 
     const sqlCheck = "SELECT * FROM food WHERE name=$1"
-    const sqlCheck = await client.query({
+    const checkExists = await client.query({
         text: sqlUser,
-        values: [dish]
+        values: [sqlCheck]
     })
 
     if (checkExists.rowCount === 0) {
