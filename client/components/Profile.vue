@@ -163,9 +163,6 @@ input {
   color:white;
   margin: auto;
   text-align: center;
-  
-  
-  
 }
 
 #errorModifyUserMessage{

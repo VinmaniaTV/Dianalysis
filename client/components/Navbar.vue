@@ -139,7 +139,7 @@ header div {
 }
 
 .navbar .nav-item .nav-link:first-letter {
-  color: #8dffd6;
+  color: #1963a8;
 }
 
 .navbar-toggler-icon img {
