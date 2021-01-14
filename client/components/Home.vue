@@ -102,7 +102,8 @@ module.exports = {
 
 <style scoped>
 #showcase {
-  background-image: url("../img/bgHome.jpg");
+  background: url("../img/bgHome.jpg") no-repeat;
+  background-size: 100%;
   height: calc(100vh - 70px);
   color: #fff;
   text-shadow: 0px 0px 10px #000;

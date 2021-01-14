@@ -2,8 +2,8 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <form @submit.prevent="addSample">
-      <h1>Prise d'une mesure</h1>
-      <table>
+      <h1 class="titre_centre">Prise d'une mesure</h1>
+      <table id="formMesure">
         <thead>
           <tr>
             <th>Aliments</th>
@@ -120,7 +120,7 @@
         </tbody>
       </table>
       <div>
-        <button @click="addSample()">Envoyer</button>
+        <button class="button_style" @click="addSample()">Envoyer</button>
       </div>
       <p id="errorSampleMessage"></p>
     </form>
@@ -193,9 +193,19 @@ body {
   margin-top: 300px;
 }
 div {
-  margin-bottom: 10px;
   position: relative;
 }
+
+section{
+  height: calc(100vh - 320px);
+  background-color: blue;
+}
+
+#formMesure{
+  margin: auto auto;
+}
+
+
 
 input + span {
   padding-right: 30px;
@@ -216,4 +226,11 @@ input:valid + span:after {
 p {
   color: red;
 }
+
+table{
+  background-color: red;
+
+}
+
+
 </style>

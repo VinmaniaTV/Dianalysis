@@ -2,7 +2,6 @@
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
     <div class="profile_container">
-      
       <form id="form_profile">
       <h3 id="vos_informations">Vos informations</h3>
     <div class="collum">
@@ -44,7 +43,7 @@
         </div>
       </div>
     </div>
-        <button type="submit" id="button_valider">Valider les modifications</button>
+        <button type="submit" class="button_style">Valider les modifications</button>
       </form>
     </div>
     <p id="errorModifyUserMessage"></p>
@@ -92,25 +91,24 @@ module.exports = {
 </script>
 
 <style scoped>
-.collum1{
 
-  padding-top:20px
+.collum1{
+  padding-top:20px;
+  width: 400px;
 }
 .collum2{
-
   padding-top:20px
 }
 .input_style{
-  
   border-color:rgb(73, 89, 231);
   border-radius: 10px;
   
 }
 
 .data_profile{
-  margin-top: 30px;
   color:white;
-  text-align: center  ;
+  text-align: center;
+  margin: 50px;
   
 
   }
@@ -129,6 +127,7 @@ module.exports = {
   align-items: center;
   padding: 60px;
   width: 100%;
+  height: clac(100vh - 200px);
   
 }
 .collum{
@@ -168,14 +167,5 @@ input {
 
 #errorModifyUserMessage{
   margin: 0;
-}
-#button_valider{
-  color:rgb(255, 255, 255);
-  border-color: rgb(0, 0, 0);
-  background-color: rgb(27, 44, 194);
-  border-radius:10px;
-  display: block;
-  margin: auto auto;
-  height: 2em;
 }
 </style>

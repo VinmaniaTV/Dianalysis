@@ -60,7 +60,7 @@
             <input type="password" id="confirmationPassword" required />
           </div>
           <div>
-            <label for="Numéro">Numéro de Téléphone:</label>
+            <label for="Numéro">Téléphone:</label>
             <input
               type="number"
               id="Numéro"
