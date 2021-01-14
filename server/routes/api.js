@@ -233,4 +233,35 @@ router.get('/datafood', async(req, res) => {
     return
 })
 
+/**
+ * Cette route permet de se connecter.
+ */
+router.post('/sample', async(req, res) => {
+    const entrance = req.body.entrance
+    const dish = req.body.dish
+    const accompaniment = req.body.accompaniment
+    const dessert = req.body.dessert
+
+    const sqlCheck = "SELECT * FROM food WHERE name=$1"
+    const sqlCheck = await client.query({
+        text: sqlUser,
+        values: [dish]
+    })
+
+    if (checkExists.rowCount === 0) {
+        res.status(401).json({ message: 'dish doesn\'t exists' });
+        return
+    }
+
+    if (await bcrypt.compare(password, checkExists.rows[0].password)) {
+        req.session.userId = checkExists.rows[0].id
+
+        // on envoie le nom du user au client.
+        return res.json(username)
+    } else {
+        return res.status(401).json({ message: 'wrong password' })
+
+    }
+})
+
 module.exports = router
