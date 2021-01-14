@@ -42,6 +42,12 @@
         <input type="text" name="new_mdp2" placeholder="Saisissez votre nouveau mot de passe" class="input_style" />
         </div>
       </div>
+
+      <div class="data_profile">
+        <h6>Taux de glucose journalier en g&nbsp;:</h6>
+        <input type="number" name="tauxGlucose" placeholder="Taux de glucose" class="input_style" id="glucose"/>
+        </div>
+
     </div>
         <button type="submit" class="button_style">Valider les modifications</button>
       </form>
@@ -102,15 +108,13 @@ module.exports = {
 .input_style{
   border-color:rgb(73, 89, 231);
   border-radius: 10px;
-  
 }
 
 .data_profile{
   color:white;
   margin: 50px;
-  
+}
 
-  }
 .profile_container{
   background-image: url("../img/fondbleu.jpg");
   display: flex;
@@ -153,8 +157,9 @@ div#first div.droite {
 div#first div h6,
 h3,
 input {
-  margin-left: 35px;
+  
   margin-bottom: 10px;
+  width: 300px;
 }
 
 #vos_informations{

@@ -89,4 +89,8 @@ th{
   border: 1px solid black;
   padding: 10px;
 }
+
+section{
+  height: 1vh;
+}
 </style>

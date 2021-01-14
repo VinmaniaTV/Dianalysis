@@ -89,4 +89,17 @@ section {
   font-size: 50px;
   width: 900px;
 }
+
+.title_container {
+    background: rgb(1,25,68);
+    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+    font-size: 60px;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    height: 110px;
+    margin: 0;
+}
 </style>

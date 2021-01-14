@@ -135,20 +135,8 @@ footer section {
     text-align: right !important;
 }
 
-.button_style{
-    color:rgb(255, 255, 255);
-    border-color: rgb(0, 0, 0);
-    background-color: rgb(27, 44, 194);
-    border-radius:10px;
-    display: block;
-    margin: auto auto;
-    height: 2em;
-  }
 
-#errorSampleMessage{
-    margin: 0;
-}
 
-.titre_centre{
-    text-align: center;
-}
+
+
+

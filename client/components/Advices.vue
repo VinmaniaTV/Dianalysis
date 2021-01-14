@@ -10,17 +10,15 @@
           <p>Insérer une description</p>
         </div>
         <div class="card">
-          <h2>TITRE DEUXIEME</h2>
-
-          <div class="fakeimg" style="height: 200px">Image</div>
-          <p>une autre description</p>
+          <h2>QU'EST-CE QUE LE DIABÈTE ?</h2><br>
+          <img src="./img/diabeteSchema.png" alt="diabete petit schema" width="700px">
         </div>
       </div>
       <div class="rightcolumn">
         <div class="card">
-          <h2>QUI SOMMES NOUS</h2>
+          <h2>QUI SOMMES-NOUS ?</h2>
           <div class="fakeimg" style="height: 100px">Image</div>
-          <p>Nous sommes les créateurs du projet blala</p>
+          <p>Étudiant à l'école d'Efrei Paris nous vous proposons ici un groupe de service qui vous faciliteront votre quotidien.</p>
         </div>
         <div class="card">
           <h3>ACTUALITE</h3>
@@ -32,7 +30,10 @@
         </div>
         <div class="card">
           <h3>REJOIGNEZ NOTRE COMMUNAUTE</h3>
-          <p>blablabla</p>
+          <p>Vous pouvez nous soutenir et discuter des améliorations via nos réseaux sociaux</p>
+          <a href=""><img src="./img/instaLogo.png" alt="logo instagram" width="10%"> &nbsp;Instagram</a><br>
+          <a href=""><img src="./img/twitterLogo.png" alt="logo twitter" width="10%" id="logotwitter"> &nbsp;Twitter </a>
+          
         </div>
       </div>
     </div>
@@ -75,28 +76,31 @@ body {
 /* Left column */
 .leftcolumn {
   float: left;
-  width: 75%;
+  width: 74%;
+  margin-left: 10px;
 }
 
 /* Right column */
 .rightcolumn {
   float: left;
   width: 25%;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 /* Fake image */
 .fakeimg {
   background-color: #aaa;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Add a card effect for articles */
 .card {
   background-color: white;
   padding: 20px;
-  margin-top: 20px;
+  margin: 25px;
+  height: 500px;
+  align-items: center;
 }
 
 /* Clear floats after the columns */
@@ -122,4 +126,18 @@ body {
     padding: 0;
   }
 }
+
+#logotwitter{
+  border-radius: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(0, 132, 255);
+}
+
+section {
+background: linear-gradient(#071e38, #040614);
+}
+
 </style>

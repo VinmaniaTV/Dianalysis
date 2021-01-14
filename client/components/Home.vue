@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <section>
+    <section id="home">
       <div id="us">
         <h3>Qui sommes-nous ?</h3>
         <div class="element content">
@@ -176,5 +176,9 @@ section article {
 h4 {
   padding-top: 30px;
   font-size: 30px;
+}
+
+#home{
+  background-color: white;
 }
 </style>
