@@ -63,7 +63,7 @@ tr{
 }
 .title_container {
     background: rgb(1,31,95);
-    background: linear-gradient(90deg, rgba(1,31,95,1) 0%, rgb(3, 3, 182) 46%, rgba(1,31,95,1) 100%);
+    background: linear-gradient(90deg, rgba(1,31,95,1) 0%, rgb(5, 5, 143) 46%, rgba(1,31,95,1) 100%);
     font-size: 45px;
     padding-top: 20px;
     color: white;
@@ -90,7 +90,5 @@ th{
   padding: 10px;
 }
 
-section{
-  height: 1vh;
-}
+
 </style>
