@@ -61,18 +61,20 @@ tr{
   background-color: rgb(243, 243, 196);
 
 }
+
 .title_container {
-    background: rgb(1,31,95);
-    background: linear-gradient(90deg, rgba(1,31,95,1) 0%, rgb(5, 5, 143) 46%, rgba(1,31,95,1) 100%);
-    font-size: 45px;
-    padding-top: 20px;
+    background: rgb(1,25,68);
+    background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
+    font-size: 50px;
+    padding-top: 10px;
     color: white;
     text-align: center;
     justify-content: center;
     margin: auto;
-    height: 110px;
+    height: 100px;
     margin: 0;
 }
+
 table{
   border-collapse: collapse
 }
@@ -90,5 +92,7 @@ th{
   padding: 10px;
 }
 
-
+section{
+  height: 1vh;
+}
 </style>
