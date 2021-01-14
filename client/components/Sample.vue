@@ -124,7 +124,7 @@
         </tbody>
       </table>
       <div>
-        <button class="button_style" @click="addSample()">Envoyer</button>
+        <button class="button_style" type="submit">Envoyer</button>
       </div>
       <p id="errorSampleMessage"></p>
     </form>

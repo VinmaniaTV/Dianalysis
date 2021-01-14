@@ -246,11 +246,8 @@ router.post('/sample', async(req, res) => {
     const quantityaccompaniment = parseFloat(req.body.quantityaccompaniment)
     const quantitydessert = parseFloat(req.body.quantitydessert)
 
-    console.log(entrance == "")
-    console.log(dish)
-    console.log(quantitydish)
+    let total = 0;
 
-    /*
     // Vérifie si le plat existe dans la base de données
     const sqlCheck = "SELECT * FROM food WHERE name=$1"
     const getDish = await client.query({
@@ -278,11 +275,13 @@ router.post('/sample', async(req, res) => {
     })
 
     // Insère le plat de l'utilisateur dans la base de données
-    const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+    const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
     await client.query({
         text: newDishSql,
-        values: [sample.rows[0], getDish.rows[0].id, quantitydish, "dish"]
+        values: [sample.rows[0].id, getDish.rows[0].id, quantitydish, "dish"]
     })
+
+    total += quantitydish * getDish.rows[0].tauxglucose / 100;
 
     // Insère l'entrée de l'utilisateur dans la base de données, si entré par l'utilisateur
     if (entrance != "") {
@@ -297,11 +296,13 @@ router.post('/sample', async(req, res) => {
             return
         }
 
-        const newEntranceSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+        const newEntranceSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
         await client.query({
             text: newEntranceSql,
-            values: [sample.rows[0], getEntrance.rows[0].id, quantityentrance, "Entrance"]
+            values: [sample.rows[0].id, getEntrance.rows[0].id, quantityentrance, "Entrance"]
         })
+
+        total += quantityentrance * getEntrance.rows[0].tauxglucose / 100;
     }
 
     // Insère l'accompagnement de l'utilisateur dans la base de données, si entré par l'utilisateur
@@ -317,11 +318,13 @@ router.post('/sample', async(req, res) => {
             return
         }
 
-        const newAccompanimentSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+        const newAccompanimentSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
         await client.query({
             text: newAccompanimentSql,
-            values: [sample.rows[0], getAccompaniment.rows[0].id, quantityaccompaniment, "accompaniment"]
+            values: [sample.rows[0].id, getAccompaniment.rows[0].id, quantityaccompaniment, "accompaniment"]
         })
+
+        total += quantityaccompaniment * getAccompaniment.rows[0].tauxglucose / 100;
     }
 
     // Insère le déssert de l'utilisateur dans la base de données, si entré par l'utilisateur
@@ -337,30 +340,29 @@ router.post('/sample', async(req, res) => {
             return
         }
 
-        const newDessertSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3, $4)"
+        const newDessertSql = "INSERT INTO sampledetails (sampleid, foodid, quantity, type) VALUES ($1, $2, $3, $4)"
         await client.query({
             text: newDessertSql,
-            values: [sample.rows[0], getDessert.rows[0].id, quantitydessert, "dessert"]
+            values: [sample.rows[0].id, getDessert.rows[0].id, quantitydessert, "dessert"]
         })
+
+        total += quantitydessert * getDessert.rows[0].tauxglucose / 100;
     }
 
-    // Insère le l'entrée de l'utilisateur dans la base de données
-    const newDishSql = "INSERT INTO sampledetails (sampleid, foodid, quantity) VALUES ($1, $2, $3)"
+    // Modifie le total de glucose en g présent dans le repas de l'utilisateur dans la base de données
+    const updateSampleGlucoseSql = "UPDATE sample SET glucose = $1 WHERE id = $2"
     await client.query({
-        text: newDishSql,
-        values: [sample.rows[0], getDish.rows[0].id, quantitydish]
+        text: updateSampleGlucoseSql,
+        values: [total, sample.rows[0].id]
     })
 
-    if (await bcrypt.compare(password, checkExists.rows[0].password)) {
-        req.session.userId = checkExists.rows[0].id
+    const getFinalSampleSql = "SELECT * FROM sample WHERE id = $1"
+    const finalSample = await client.query({
+        text: getFinalSampleSql,
+        values: [sample.rows[0].id]
+    })
 
-        // on envoie le nom du user au client.
-        return res.json(username)
-    } else {
-        return res.status(401).json({ message: 'wrong password' })
-
-    }
-    */
+    return res.json(finalSample.rows[0])
 })
 
 module.exports = router

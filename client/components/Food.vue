@@ -21,7 +21,7 @@
             <td>{{ f.groupf }}</td>
             <td>{{ f.sgroupf }}</td>
             <td>{{ f.ssgroupf }}</td>
-            <td>{{ f.glucose }}</td>
+            <td>{{ f.tauxglucose }}</td>
           </tr>
         </tbody>
       </table>
