@@ -18,3 +18,7 @@ Nuances :
 #6792E0
 #6D9AED
 #5B81C7
+
+
+COMMANDE
+copy food (groupf, sgroupf, ssgroupf, name, glucose) FROM 'C:/Users/vinma/Desktop/Dianalysis/food.csv' DELIMITER ',' CSV;
