@@ -1,7 +1,7 @@
 <template>
   <section>
     <navbar :connected="connected" @log-out="logOut"></navbar>
-    <h2 class="title_container">CONSEILS ET ACTUS</h2>
+      <h2 class="title_container">CONSEILS ET ACTUS</h2>
     <div class="row">
       <div class="leftcolumn">
 
@@ -176,7 +176,7 @@ background: linear-gradient(#071e38, #040614);
     background: rgb(1,25,68);
     background: linear-gradient(90deg, rgba(1,25,68,1) 0%, rgb(3, 3, 114) 46%, rgba(1,25,68,1) 100%);
     font-size: 60px;
-    padding-top: 10px;
+    padding-top: 20px;
     color: white;
     text-align: center;
     justify-content: center;

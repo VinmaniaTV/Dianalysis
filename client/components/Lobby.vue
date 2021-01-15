@@ -5,7 +5,7 @@
       <h2>(Re)Bonjour à vous !</h2>
     </nav>
     <div id="section_y">
-      <h2 class="title_container">Accueil</h2>
+      <h2 class="title_container">Lobby</h2>
       <div class="sommaire">
         <router-link class="summary" to="/sample">Prendre une mesure</router-link>
         <router-link class="summary" to="/food">Liste des aliments</router-link>
