@@ -51,15 +51,12 @@ module.exports = {
 };
 </script>
 <style scoped>
-section {
-  background-color: rgb(107, 107, 107);
-  font-family: 'Montserrat', sans-serif;
-}
-
 article {
   background-color: #39CFF7;
   height: 100%;
   padding: 70px;
+  background-color: rgb(107, 107, 107);
+  font-family: 'Montserrat', sans-serif;
 }
 
 tr {
