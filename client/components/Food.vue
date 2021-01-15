@@ -90,6 +90,7 @@ h2:first-letter {
   border-radius: 40px;
   height: 120vh;
   max-height: 720px;
+  box-shadow: 10px 5px 50px -20px #047DDE;
 }
 
 .title_container {
