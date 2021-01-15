@@ -103,6 +103,11 @@ body {
   background: white;
 }
 
+.row {
+  max-width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn {
