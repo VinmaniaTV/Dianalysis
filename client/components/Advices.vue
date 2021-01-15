@@ -199,10 +199,6 @@ background: linear-gradient(#071e38, #040614);
   margin-left: 50px;
 }
 
-img{
-  margin: 30px;
-}
-
 .cardTitle{
   margin: 30px;
   text-decoration: underline;
